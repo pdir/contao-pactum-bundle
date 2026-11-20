@@ -1,0 +1,17 @@
+{% extends '@Contao/backend/pactum/_layout.html.twig' %}
+{% trans_default_domain 'pactum' %}
+
+{% block pactum_content %}
+    <form method="post" class="tl_form">
+        <div class="tl_formbody_edit">
+            <input type="hidden" name="REQUEST_TOKEN" value="{{ contao.request_token }}">
+            <p class="tl_confirm">{{ question }}</p>
+        </div>
+        <div class="tl_formbody_submit">
+            <div class="tl_submit_container">
+                <button type="submit" class="tl_submit">{{ submit_label }}</button>
+                <a href="{{ back_url }}" class="tl_submit">{{ 'be.cancel'|trans }}</a>
+            </div>
+        </div>
+    </form>
+{% endblock %}

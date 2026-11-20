@@ -1,0 +1,25 @@
+{% trans_default_domain 'pactum' %}
+<section class="pactum-step pactum-step--data" aria-labelledby="pactum-step-data">
+    <h2 id="pactum-step-data">{{ 'step.data.headline'|trans({}, 'pactum', lang) }}</h2>
+    <p>{{ 'step.data.text'|trans({'%contract%': contract_title}, 'pactum', lang) }}</p>
+    <p class="pactum-required-hint">{{ 'form.required_hint'|trans({}, 'pactum', lang) }}</p>
+
+    {{ form_start(form, {attr: {class: 'pactum-form', novalidate: 'novalidate'}}) }}
+        {{ form_errors(form) }}
+        <fieldset>
+            <legend>{{ 'form.legend_customer'|trans({}, 'pactum', lang) }}</legend>
+            {{ form_row(form.company) }}
+            {{ form_row(form.street) }}
+            {{ form_row(form.postal) }}
+            {{ form_row(form.city) }}
+            {{ form_row(form.country) }}
+        </fieldset>
+        <fieldset>
+            <legend>{{ 'form.legend_signatory'|trans({}, 'pactum', lang) }}</legend>
+            {{ form_row(form.signatory_name) }}
+            {{ form_row(form.signatory_role) }}
+            {{ form_row(form.signatory_email, {help: 'form.signatory_email_help'|trans({}, 'pactum', lang)}) }}
+        </fieldset>
+        {{ form_row(form.submit) }}
+    {{ form_end(form) }}
+</section>

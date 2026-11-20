@@ -1,0 +1,17 @@
+{% extends '@Contao/backend/pactum/_layout.html.twig' %}
+{% trans_default_domain 'pactum' %}
+
+{% block pactum_content %}
+    {% if publish_error %}
+        <p class="tl_error">{{ publish_error }}</p>
+    {% endif %}
+    {% if pactum_version.contentHash %}
+        <p class="tl_info">{{ 'be.version.frozen'|trans({'%hash%': pactum_version.contentHash}) }}</p>
+    {% else %}
+        <p class="tl_info">{{ 'be.version.preview_hint'|trans }}</p>
+    {% endif %}
+    {% if preview is not null %}
+        {# Sanitized markup rendered by Pactum #}
+        <div class="tl_box pactum-document">{{ preview|raw }}</div>
+    {% endif %}
+{% endblock %}

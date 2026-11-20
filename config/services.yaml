@@ -1,0 +1,32 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        bind:
+            $invitationTtlDays: '%pactum.invitation_ttl_days%'
+            $optInTtlHours: '%pactum.optin_ttl_hours%'
+            $ipMode: '%pactum.ip_mode%'
+            $storeUserAgent: '%pactum.store_user_agent%'
+            $ipRetentionDays: '%pactum.ip_retention_days%'
+            $cleanupAfterDays: '%pactum.cleanup_after_days%'
+            $agreementRetentionDays: '%pactum.agreement_retention_days%'
+            $storageDir: '%pactum.storage_dir%'
+            $downloadTtlMinutes: '%pactum.download_ttl_minutes%'
+
+    Pdir\PactumBundle\:
+        resource: ../src/
+        exclude:
+            - ../src/ContaoManager/
+            - ../src/PactumBundle.php
+            - ../src/Domain/
+            - ../src/Event/
+            - ../src/Exception/
+            - ../src/Notification/Notification.php
+            - ../src/Rendering/PlaceholderContext.php
+            - ../src/Rendering/HtmlValue.php
+            - ../src/Sample/SampleImportResult.php
+            - ../src/Subprocessor/SubprocessorImportResult.php
+
+    Pdir\PactumBundle\Rendering\PlaceholderResolver:
+        arguments:
+            $providers: !tagged_iterator pactum.placeholder_provider

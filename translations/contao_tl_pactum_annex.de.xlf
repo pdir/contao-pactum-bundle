@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" target-language="de" datatype="plaintext" original="contao_tl_pactum_annex">
+        <body>
+            <trans-unit id="tl_pactum_annex.annex_legend" resname="tl_pactum_annex.annex_legend">
+                <source>Annex</source>
+                <target>Anlage</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_annex.content_legend" resname="tl_pactum_annex.content_legend">
+                <source>Content</source>
+                <target>Inhalt</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_annex.type.0" resname="tl_pactum_annex.type.0">
+                <source>Type</source>
+                <target>Typ</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_annex.type.1" resname="tl_pactum_annex.type.1">
+                <source>Sub-processors are managed as structured child records.</source>
+                <target>Unterauftragsverarbeiter werden über die Kind-Datensätze strukturiert erfasst.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_annex.types.tom" resname="tl_pactum_annex.types.tom">
+                <source>Technical and organisational measures (TOM)</source>
+                <target>Technische und organisatorische Maßnahmen (TOM)</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_annex.types.subprocessor" resname="tl_pactum_annex.types.subprocessor">
+                <source>Sub-processors</source>
+                <target>Unterauftragsverarbeiter</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_annex.types.custom" resname="tl_pactum_annex.types.custom">
+                <source>Other annex</source>
+                <target>Sonstige Anlage</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_annex.title.0" resname="tl_pactum_annex.title.0">
+                <source>Title</source>
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_annex.title.1" resname="tl_pactum_annex.title.1">
+                <source></source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_annex.content.0" resname="tl_pactum_annex.content.0">
+                <source>Content</source>
+                <target>Inhalt</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_annex.content.1" resname="tl_pactum_annex.content.1">
+                <source>Optional introduction for sub-processors.</source>
+                <target>Bei Unterauftragsverarbeitern optionaler Einleitungstext.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

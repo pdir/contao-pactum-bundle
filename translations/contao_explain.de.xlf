@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" target-language="de" datatype="plaintext" original="contao_explain">
+        <body>
+            <trans-unit id="XPL.pactumPlaceholders.0.0" resname="XPL.pactumPlaceholders.0.0">
+                <source>Placeholders</source>
+                <target>Platzhalter</target>
+            </trans-unit>
+            <trans-unit id="XPL.pactumPlaceholders.0.1" resname="XPL.pactumPlaceholders.0.1">
+                <source>Placeholders are written in double curly braces, e.g. &lt;code&gt;{{contractor.name}}&lt;/code&gt;. No code is executed. Unknown placeholders prevent publishing.</source>
+                <target>Platzhalter werden in doppelten geschweiften Klammern notiert, z. B. &lt;code&gt;{{contractor.name}}&lt;/code&gt;. Es wird kein Code ausgeführt. Unbekannte Platzhalter verhindern das Veröffentlichen.</target>
+            </trans-unit>
+            <trans-unit id="XPL.pactumPlaceholders.1.0" resname="XPL.pactumPlaceholders.1.0">
+                <source>On publishing</source>
+                <target>Beim Veröffentlichen</target>
+            </trans-unit>
+            <trans-unit id="XPL.pactumPlaceholders.1.1" resname="XPL.pactumPlaceholders.1.1">
+                <source>&lt;code&gt;contractor.name, .street, .postal, .city, .country, .address, .representative, .dpo_name, .dpo_contact, .email&lt;/code&gt;, &lt;code&gt;version.number&lt;/code&gt;, &lt;code&gt;version.valid_from&lt;/code&gt;, &lt;code&gt;template.title&lt;/code&gt;, &lt;code&gt;annex.tom&lt;/code&gt;, &lt;code&gt;annex.subprocessors&lt;/code&gt;, &lt;code&gt;annex.custom&lt;/code&gt; (annexes not placed inline are appended)</source>
+                <target>&lt;code&gt;contractor.name, .street, .postal, .city, .country, .address, .representative, .dpo_name, .dpo_contact, .email&lt;/code&gt;, &lt;code&gt;version.number&lt;/code&gt;, &lt;code&gt;version.valid_from&lt;/code&gt;, &lt;code&gt;template.title&lt;/code&gt;, &lt;code&gt;annex.tom&lt;/code&gt;, &lt;code&gt;annex.subprocessors&lt;/code&gt;, &lt;code&gt;annex.custom&lt;/code&gt; (nicht eingebundene Anlagen werden angehängt)</target>
+            </trans-unit>
+            <trans-unit id="XPL.pactumPlaceholders.2.0" resname="XPL.pactumPlaceholders.2.0">
+                <source>On conclusion</source>
+                <target>Beim Abschluss</target>
+            </trans-unit>
+            <trans-unit id="XPL.pactumPlaceholders.2.1" resname="XPL.pactumPlaceholders.2.1">
+                <source>&lt;code&gt;customer.company, .street, .postal, .city, .country, .address&lt;/code&gt;, &lt;code&gt;signatory.name, .role, .email&lt;/code&gt;, &lt;code&gt;agreement.date&lt;/code&gt;</source>
+                <target>&lt;code&gt;customer.company, .street, .postal, .city, .country, .address&lt;/code&gt;, &lt;code&gt;signatory.name, .role, .email&lt;/code&gt;, &lt;code&gt;agreement.date&lt;/code&gt;</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

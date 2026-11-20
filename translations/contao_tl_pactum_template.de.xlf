@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" target-language="de" datatype="plaintext" original="contao_tl_pactum_template">
+        <body>
+            <trans-unit id="tl_pactum_template.template_legend" resname="tl_pactum_template.template_legend">
+                <source>Template</source>
+                <target>Vorlage</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_template.invitation_legend" resname="tl_pactum_template.invitation_legend">
+                <source>Invitations</source>
+                <target>Einladungen</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_template.title.0" resname="tl_pactum_template.title.0">
+                <source>Title</source>
+                <target>Titel</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_template.title.1" resname="tl_pactum_template.title.1">
+                <source>e.g. &quot;DPA hosting&quot;.</source>
+                <target>z. B. „AVV Hosting“.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_template.contractor.0" resname="tl_pactum_template.contractor.0">
+                <source>Contractor</source>
+                <target>Auftragnehmer</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_template.contractor.1" resname="tl_pactum_template.contractor.1">
+                <source>Contractor profile for this template.</source>
+                <target>Auftragnehmer-Profil für diese Vorlage.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_template.target_page.0" resname="tl_pactum_template.target_page.0">
+                <source>Conclusion page</source>
+                <target>Abschlussseite</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_template.target_page.1" resname="tl_pactum_template.target_page.1">
+                <source>Page containing the content element &quot;Pactum: conclude agreement&quot;. Invitation links point to this page.</source>
+                <target>Seite mit dem Inhaltselement „Pactum: Vertragsabschluss“. Einladungslinks zeigen auf diese Seite.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_template.invitation_ttl_days.0" resname="tl_pactum_template.invitation_ttl_days.0">
+                <source>Invitation validity (days)</source>
+                <target>Gültigkeit der Einladung (Tage)</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_template.invitation_ttl_days.1" resname="tl_pactum_template.invitation_ttl_days.1">
+                <source>Empty or 0 = default from the configuration (30 days).</source>
+                <target>Leer oder 0 = Standard aus der Konfiguration (30 Tage).</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

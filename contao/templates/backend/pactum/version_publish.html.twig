@@ -1,0 +1,27 @@
+{% extends '@Contao/backend/pactum/_layout.html.twig' %}
+{% trans_default_domain 'pactum' %}
+
+{% block pactum_content %}
+    {% if publish_error %}
+        <p class="tl_error">{{ publish_error }}</p>
+    {% else %}
+        <form method="post" class="tl_form">
+            <div class="tl_formbody_edit">
+                <input type="hidden" name="REQUEST_TOKEN" value="{{ contao.request_token }}">
+                <p class="tl_confirm">{{ 'be.version.publish_question'|trans({'%number%': pactum_version.versionNumber, '%language%': pactum_version.language, '%template%': template.title|default('')}) }}</p>
+                <p class="tl_help">{{ 'be.version.publish_hint'|trans }}</p>
+            </div>
+            <div class="tl_formbody_submit">
+                <div class="tl_submit_container">
+                    <button type="submit" class="tl_submit">{{ 'be.version.publish_submit'|trans }}</button>
+                    <a href="{{ back_url }}" class="tl_submit">{{ 'be.cancel'|trans }}</a>
+                </div>
+            </div>
+        </form>
+    {% endif %}
+    {% if preview is not null %}
+        <h2 class="sub_headline">{{ 'be.version.preview'|trans }}</h2>
+        {# Sanitized markup rendered by Pactum #}
+        <div class="tl_box pactum-document">{{ preview|raw }}</div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,91 @@
+name: CI
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+
+permissions:
+    contents: read
+
+concurrency:
+    group: ci-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    coding-style:
+        name: Coding style & static analysis
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '8.4'
+                  extensions: gd, intl, pdo_mysql
+                  coverage: none
+
+            - name: Validate composer.json
+              run: composer validate --strict --no-check-lock
+
+            - uses: ramsey/composer-install@v3
+
+            - name: ECS
+              run: vendor/bin/ecs check --no-progress-bar
+
+            - name: PHPStan
+              run: vendor/bin/phpstan analyse --no-progress --memory-limit=1G
+
+    tests:
+        name: PHP ${{ matrix.php }} / Contao ${{ matrix.contao }}${{ matrix.symfony && format(' / Symfony {0}', matrix.symfony) || '' }}
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                    # Contao 5.7 supports Symfony 7.4 only, Contao 6.0 supports 7.4 and 8.x
+                    - { php: '8.3', contao: '5.7.*' }
+                    - { php: '8.4', contao: '5.7.*' }
+                    - { php: '8.4', contao: '6.0.*', symfony: '7.4.*' }
+                    - { php: '8.4', contao: '6.0.*', symfony: '8.*' }
+                    - { php: '8.5', contao: '6.0.*' }
+        services:
+            mysql:
+                image: mysql:8.4
+                env:
+                    MYSQL_ROOT_PASSWORD: root
+                    MYSQL_DATABASE: pactum_test
+                ports: ['3306:3306']
+                options: >-
+                    --health-cmd="mysqladmin ping -proot"
+                    --health-interval=5s
+                    --health-timeout=3s
+                    --health-retries=20
+        env:
+            PACTUM_TEST_DATABASE_URL: mysql://root:root@127.0.0.1:3306/pactum_test
+        steps:
+            - uses: actions/checkout@v4
+
+            - uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php }}
+                  extensions: gd, intl, pdo_mysql
+                  coverage: none
+                  tools: flex
+
+            - name: Restrict Contao (and Symfony) version
+              run: |
+                  composer require --no-update --no-interaction "contao/core-bundle:${{ matrix.contao }}"
+                  if [ -n "${{ matrix.symfony }}" ]; then
+                      composer config extra.symfony.require "${{ matrix.symfony }}"
+                  fi
+
+            - uses: ramsey/composer-install@v3
+              with:
+                  dependency-versions: highest
+
+            - name: Unit tests
+              run: vendor/bin/phpunit --testsuite unit
+
+            - name: Functional tests (MySQL)
+              run: vendor/bin/phpunit --testsuite functional

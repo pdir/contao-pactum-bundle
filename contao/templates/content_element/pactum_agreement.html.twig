@@ -1,0 +1,22 @@
+{% extends '@Contao/content_element/_base.html.twig' %}
+{% trans_default_domain 'pactum' %}
+
+{#
+    Pactum: conclude agreement. Overridable like any other content element
+    template. The individual steps live in "@Contao/pactum/process/*".
+    Variables: state, step, steps, locale, notice, invitation, ... (see controller)
+#}
+{% set searchable = false %}
+
+{% block content %}
+    {% set lang = locale|default(null) %}
+    <div class="pactum" data-pactum-state="{{ state }}">
+        {% if state == 'process' %}
+            {{ include('@Contao/pactum/process/_progress.html.twig') }}
+            {{ include('@Contao/pactum/process/_notice.html.twig') }}
+            {{ include('@Contao/pactum/process/' ~ step ~ '.html.twig') }}
+        {% else %}
+            {{ include('@Contao/pactum/process/_message.html.twig') }}
+        {% endif %}
+    </div>
+{% endblock %}

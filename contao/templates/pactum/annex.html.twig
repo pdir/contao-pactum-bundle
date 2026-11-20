@@ -1,0 +1,33 @@
+{#
+    Renders one annex inside the contract document. The output is sanitized
+    afterwards and frozen into the published version.
+    Variables: annex (Pdir\PactumBundle\Domain\Annex), number (int), locale
+#}
+<section class="pactum-annex pactum-annex--{{ annex.type.value }}">
+    <h2>{{ 'annex.heading'|trans({'%number%': number, '%title%': annex.title}, 'pactum', locale) }}</h2>
+    {% if annex.content %}
+        {{ annex.content|raw }}
+    {% endif %}
+    {% if annex.subprocessors is not empty %}
+        <table class="pactum-subprocessors">
+            <thead>
+                <tr>
+                    <th>{{ 'annex.subprocessor.name'|trans({}, 'pactum', locale) }}</th>
+                    <th>{{ 'annex.subprocessor.service'|trans({}, 'pactum', locale) }}</th>
+                    <th>{{ 'annex.subprocessor.location'|trans({}, 'pactum', locale) }}</th>
+                    <th>{{ 'annex.subprocessor.transfer_basis'|trans({}, 'pactum', locale) }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sub in annex.subprocessors %}
+                    <tr>
+                        <td>{{ sub.name }}<br>{{ sub.address|nl2br }}</td>
+                        <td>{{ sub.service|nl2br }}</td>
+                        <td>{{ ('annex.location.' ~ sub.location)|trans({}, 'pactum', locale) }}</td>
+                        <td>{{ sub.thirdCountry ? sub.transferBasis : '–' }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</section>

@@ -1,0 +1,5 @@
+{% autoescape false %}{{ 'mail.agreement_contractor.text'|trans({'%contract%': template_title, '%company%': company, '%version%': version_number}, 'pactum', locale) }}
+
+{{ 'mail.agreement.reference'|trans({'%reference%': agreement.uuid}, 'pactum', locale) }}
+{{ 'mail.agreement.hash'|trans({'%hash%': agreement.documentHash}, 'pactum', locale) }}
+{% endautoescape %}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="contao_tl_pactum_agreement">
+        <body>
+            <trans-unit id="tl_pactum_agreement.company.0" resname="tl_pactum_agreement.company.0">
+                <source>Company</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_agreement.signatory_name.0" resname="tl_pactum_agreement.signatory_name.0">
+                <source>Signatory</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_agreement.signatory_email.0" resname="tl_pactum_agreement.signatory_email.0">
+                <source>E-mail</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_agreement.template.0" resname="tl_pactum_agreement.template.0">
+                <source>Template</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_agreement.version.0" resname="tl_pactum_agreement.version.0">
+                <source>Version</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_agreement.language.0" resname="tl_pactum_agreement.language.0">
+                <source>Language</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_agreement.consented_at.0" resname="tl_pactum_agreement.consented_at.0">
+                <source>Concluded on</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_agreement.mail_status.0" resname="tl_pactum_agreement.mail_status.0">
+                <source>Mail delivery</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_agreement.mail_statuses.pending" resname="tl_pactum_agreement.mail_statuses.pending">
+                <source>Pending</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_agreement.mail_statuses.sent" resname="tl_pactum_agreement.mail_statuses.sent">
+                <source>Sent</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_agreement.mail_statuses.failed" resname="tl_pactum_agreement.mail_statuses.failed">
+                <source>Failed</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_agreement.detail.0" resname="tl_pactum_agreement.detail.0">
+                <source>Details</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_agreement.detail.1" resname="tl_pactum_agreement.detail.1">
+                <source>Details of agreement ID %s</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_agreement.pdf.0" resname="tl_pactum_agreement.pdf.0">
+                <source>PDF</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_agreement.pdf.1" resname="tl_pactum_agreement.pdf.1">
+                <source>Download PDF of agreement ID %s</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

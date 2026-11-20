@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="contao_modules">
+        <body>
+            <trans-unit id="MOD.pactum" resname="MOD.pactum">
+                <source>Pactum (DPA)</source>
+            </trans-unit>
+            <trans-unit id="MOD.pactum_templates.0" resname="MOD.pactum_templates.0">
+                <source>Contract templates</source>
+            </trans-unit>
+            <trans-unit id="MOD.pactum_templates.1" resname="MOD.pactum_templates.1">
+                <source>Manage contract templates and versions.</source>
+            </trans-unit>
+            <trans-unit id="MOD.pactum_annexes.0" resname="MOD.pactum_annexes.0">
+                <source>Annexes</source>
+            </trans-unit>
+            <trans-unit id="MOD.pactum_annexes.1" resname="MOD.pactum_annexes.1">
+                <source>Manage TOMs, sub-processors and other annexes.</source>
+            </trans-unit>
+            <trans-unit id="MOD.pactum_invitations.0" resname="MOD.pactum_invitations.0">
+                <source>Invitations</source>
+            </trans-unit>
+            <trans-unit id="MOD.pactum_invitations.1" resname="MOD.pactum_invitations.1">
+                <source>Create and manage invitations.</source>
+            </trans-unit>
+            <trans-unit id="MOD.pactum_agreements.0" resname="MOD.pactum_agreements.0">
+                <source>Agreements</source>
+            </trans-unit>
+            <trans-unit id="MOD.pactum_agreements.1" resname="MOD.pactum_agreements.1">
+                <source>View concluded agreements.</source>
+            </trans-unit>
+            <trans-unit id="MOD.pactum_contractors.0" resname="MOD.pactum_contractors.0">
+                <source>Settings (contractor)</source>
+            </trans-unit>
+            <trans-unit id="MOD.pactum_contractors.1" resname="MOD.pactum_contractors.1">
+                <source>Manage contractor profiles.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

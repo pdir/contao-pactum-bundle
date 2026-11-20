@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" target-language="de" datatype="plaintext" original="contao_tl_pactum_contractor">
+        <body>
+            <trans-unit id="tl_pactum_contractor.contractor_legend" resname="tl_pactum_contractor.contractor_legend">
+                <source>Contractor</source>
+                <target>Auftragnehmer</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.address_legend" resname="tl_pactum_contractor.address_legend">
+                <source>Address</source>
+                <target>Anschrift</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.dpo_legend" resname="tl_pactum_contractor.dpo_legend">
+                <source>Data protection officer</source>
+                <target>Datenschutzbeauftragter</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.mail_legend" resname="tl_pactum_contractor.mail_legend">
+                <source>E-mail</source>
+                <target>E-Mail</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.pdf_legend" resname="tl_pactum_contractor.pdf_legend">
+                <source>PDF</source>
+                <target>PDF</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.name.0" resname="tl_pactum_contractor.name.0">
+                <source>Company name</source>
+                <target>Firmenname</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.name.1" resname="tl_pactum_contractor.name.1">
+                <source>Full company name of the contractor.</source>
+                <target>Vollständiger Firmenname des Auftragnehmers.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.representative.0" resname="tl_pactum_contractor.representative.0">
+                <source>Authorised representative</source>
+                <target>Vertretungsberechtigter</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.representative.1" resname="tl_pactum_contractor.representative.1">
+                <source>e.g. managing director.</source>
+                <target>z. B. Geschäftsführer/in.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.street.0" resname="tl_pactum_contractor.street.0">
+                <source>Street</source>
+                <target>Straße</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.street.1" resname="tl_pactum_contractor.street.1">
+                <source></source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.postal.0" resname="tl_pactum_contractor.postal.0">
+                <source>Postal code</source>
+                <target>PLZ</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.postal.1" resname="tl_pactum_contractor.postal.1">
+                <source></source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.city.0" resname="tl_pactum_contractor.city.0">
+                <source>City</source>
+                <target>Ort</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.city.1" resname="tl_pactum_contractor.city.1">
+                <source></source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.country.0" resname="tl_pactum_contractor.country.0">
+                <source>Country</source>
+                <target>Land</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.country.1" resname="tl_pactum_contractor.country.1">
+                <source></source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.dpo_name.0" resname="tl_pactum_contractor.dpo_name.0">
+                <source>Name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.dpo_name.1" resname="tl_pactum_contractor.dpo_name.1">
+                <source>Name of the data protection officer.</source>
+                <target>Name des/der Datenschutzbeauftragten.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.dpo_contact.0" resname="tl_pactum_contractor.dpo_contact.0">
+                <source>Contact</source>
+                <target>Kontakt</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.dpo_contact.1" resname="tl_pactum_contractor.dpo_contact.1">
+                <source>Contact details of the data protection officer.</source>
+                <target>Kontaktdaten des/der Datenschutzbeauftragten.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.contact_email.0" resname="tl_pactum_contractor.contact_email.0">
+                <source>Contact e-mail</source>
+                <target>Kontakt-E-Mail</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.contact_email.1" resname="tl_pactum_contractor.contact_email.1">
+                <source>Used as reply-to address.</source>
+                <target>Wird als Antwortadresse verwendet.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.sender_email.0" resname="tl_pactum_contractor.sender_email.0">
+                <source>Sender e-mail</source>
+                <target>Absender-E-Mail</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.sender_email.1" resname="tl_pactum_contractor.sender_email.1">
+                <source>Sender address of all Pactum mails (must be allowed by the mail server).</source>
+                <target>Absenderadresse aller Pactum-Mails (muss vom Mailserver erlaubt sein).</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.sender_name.0" resname="tl_pactum_contractor.sender_name.0">
+                <source>Sender name</source>
+                <target>Absendername</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.sender_name.1" resname="tl_pactum_contractor.sender_name.1">
+                <source>Empty = company name.</source>
+                <target>Leer = Firmenname.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.bcc_email.0" resname="tl_pactum_contractor.bcc_email.0">
+                <source>Recipient for agreements</source>
+                <target>Empfänger für Abschlüsse</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.bcc_email.1" resname="tl_pactum_contractor.bcc_email.1">
+                <source>Receives a notification with PDF for every agreement. Empty = contact e-mail.</source>
+                <target>Erhält bei jedem Abschluss eine Meldung mit PDF. Leer = Kontakt-E-Mail.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.logo.0" resname="tl_pactum_contractor.logo.0">
+                <source>Logo</source>
+                <target>Logo</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_contractor.logo.1" resname="tl_pactum_contractor.logo.1">
+                <source>Logo for the PDF cover page (PNG, JPG, GIF or SVG).</source>
+                <target>Logo für das Deckblatt des PDFs (PNG, JPG, GIF oder SVG).</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

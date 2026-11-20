@@ -1,0 +1,48 @@
+{% extends '@Contao/backend/pactum/_layout.html.twig' %}
+{% trans_default_domain 'pactum' %}
+
+{% block pactum_content %}
+    {% if action_error %}
+        <p class="tl_error">{{ action_error }}</p>
+    {% endif %}
+
+    <div class="tl_box">
+        <p>
+            <strong>{{ 'be.invitation.template'|trans }}:</strong> {{ template.title|default('–') }} ({{ invitation.language }})<br>
+            <strong>{{ 'be.invitation.status'|trans }}:</strong> {{ ('invitation_status.' ~ effective_status)|trans }}<br>
+            <strong>{{ 'be.invitation.expires'|trans }}:</strong> {{ invitation.expiresAt|date('d.m.Y H:i') }}
+        </p>
+    </div>
+
+    {% if generated %}
+        <div class="tl_confirm">
+            <p>{{ 'be.invitation.link_generated'|trans }}</p>
+            <p><label for="pactum-link">{{ 'be.invitation.link'|trans }}</label><br>
+               <input id="pactum-link" type="text" class="tl_text" readonly value="{{ generated.url }}"></p>
+            {% if generated.mailRequested %}
+                <p>{{ (generated.mailSent ? 'be.invitation.mail_sent' : 'be.invitation.mail_failed')|trans }}</p>
+            {% endif %}
+            <p class="tl_help">{{ 'be.invitation.link_once'|trans }}</p>
+        </div>
+    {% elseif effective_status in ['open', 'opted_in'] %}
+        <form method="post" class="tl_form">
+            <div class="tl_formbody_edit">
+                <input type="hidden" name="REQUEST_TOKEN" value="{{ contao.request_token }}">
+                {% if invitation.tokenHash %}
+                    <p class="tl_info">{{ 'be.invitation.rotate_hint'|trans }}</p>
+                {% endif %}
+                <p class="tl_help">{{ 'be.invitation.link_hint'|trans }}</p>
+            </div>
+            <div class="tl_formbody_submit">
+                <div class="tl_submit_container">
+                    <button type="submit" name="generate" class="tl_submit">{{ 'be.invitation.generate'|trans }}</button>
+                    {% if invitation.prefillEmail %}
+                        <button type="submit" name="send_mail" value="1" class="tl_submit">{{ 'be.invitation.generate_send'|trans }}</button>
+                    {% endif %}
+                </div>
+            </div>
+        </form>
+    {% else %}
+        <p class="tl_info">{{ 'be.invitation.not_usable'|trans }}</p>
+    {% endif %}
+{% endblock %}

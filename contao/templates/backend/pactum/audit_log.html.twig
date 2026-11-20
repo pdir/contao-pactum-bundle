@@ -1,0 +1,8 @@
+{% extends '@Contao/backend/pactum/_layout.html.twig' %}
+{% trans_default_domain 'pactum' %}
+
+{% block pactum_content %}
+    <div class="tl_listing_container">
+        {{ include('@Contao/backend/pactum/_audit_entries.html.twig') }}
+    </div>
+{% endblock %}

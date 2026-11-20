@@ -1,0 +1,16 @@
+{% trans_default_domain 'pactum' %}
+<section class="pactum-step pactum-step--done" aria-labelledby="pactum-step-done">
+    <h2 id="pactum-step-done">{{ 'step.done.headline'|trans({}, 'pactum', lang) }}</h2>
+    <p>{{ 'step.done.text'|trans({'%contract%': contract_title}, 'pactum', lang) }}</p>
+    {% if agreement %}
+        <dl class="pactum-summary">
+            <dt>{{ 'step.done.reference'|trans({}, 'pactum', lang) }}</dt>
+            <dd><code>{{ agreement.uuid }}</code></dd>
+            <dt>{{ 'step.done.document_hash'|trans({}, 'pactum', lang) }}</dt>
+            <dd><code>{{ agreement.documentHash }}</code></dd>
+        </dl>
+        {% if download_url %}
+            <p><a class="pactum-download" href="{{ download_url }}">{{ 'step.done.download'|trans({}, 'pactum', lang) }}</a></p>
+        {% endif %}
+    {% endif %}
+</section>

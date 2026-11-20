@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="contao_tl_pactum_invitation">
+        <body>
+            <trans-unit id="tl_pactum_invitation.invitation_legend" resname="tl_pactum_invitation.invitation_legend">
+                <source>Invitation</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.prefill_legend" resname="tl_pactum_invitation.prefill_legend">
+                <source>Prefilled customer data</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.template.0" resname="tl_pactum_invitation.template.0">
+                <source>Template</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.template.1" resname="tl_pactum_invitation.template.1">
+                <source></source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.language.0" resname="tl_pactum_invitation.language.0">
+                <source>Language</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.language.1" resname="tl_pactum_invitation.language.1">
+                <source>A published version must exist for this language.</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.expires_at.0" resname="tl_pactum_invitation.expires_at.0">
+                <source>Valid until</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.expires_at.1" resname="tl_pactum_invitation.expires_at.1">
+                <source>Empty = template default.</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.prefill_company.0" resname="tl_pactum_invitation.prefill_company.0">
+                <source>Company</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.prefill_company.1" resname="tl_pactum_invitation.prefill_company.1">
+                <source></source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.prefill_email.0" resname="tl_pactum_invitation.prefill_email.0">
+                <source>E-mail</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.prefill_email.1" resname="tl_pactum_invitation.prefill_email.1">
+                <source>Recipient of the invitation mail.</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.company.0" resname="tl_pactum_invitation.company.0">
+                <source>Company</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.status.0" resname="tl_pactum_invitation.status.0">
+                <source>Status</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.created_at.0" resname="tl_pactum_invitation.created_at.0">
+                <source>Created</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.statuses.open" resname="tl_pactum_invitation.statuses.open">
+                <source>Open</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.statuses.opted_in" resname="tl_pactum_invitation.statuses.opted_in">
+                <source>E-mail confirmed</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.statuses.completed" resname="tl_pactum_invitation.statuses.completed">
+                <source>Completed</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.statuses.expired" resname="tl_pactum_invitation.statuses.expired">
+                <source>Expired</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.statuses.revoked" resname="tl_pactum_invitation.statuses.revoked">
+                <source>Revoked</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.link.0" resname="tl_pactum_invitation.link.0">
+                <source>Link</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.link.1" resname="tl_pactum_invitation.link.1">
+                <source>Generate/send link for invitation ID %s</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.extend.0" resname="tl_pactum_invitation.extend.0">
+                <source>Extend</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.extend.1" resname="tl_pactum_invitation.extend.1">
+                <source>Extend invitation ID %s</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.revoke.0" resname="tl_pactum_invitation.revoke.0">
+                <source>Revoke</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.revoke.1" resname="tl_pactum_invitation.revoke.1">
+                <source>Revoke invitation ID %s</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.audit.0" resname="tl_pactum_invitation.audit.0">
+                <source>Audit log</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_invitation.audit.1" resname="tl_pactum_invitation.audit.1">
+                <source>Audit log of invitation ID %s</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

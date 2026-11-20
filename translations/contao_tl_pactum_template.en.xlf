@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="contao_tl_pactum_template">
+        <body>
+            <trans-unit id="tl_pactum_template.template_legend" resname="tl_pactum_template.template_legend">
+                <source>Template</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_template.invitation_legend" resname="tl_pactum_template.invitation_legend">
+                <source>Invitations</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_template.title.0" resname="tl_pactum_template.title.0">
+                <source>Title</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_template.title.1" resname="tl_pactum_template.title.1">
+                <source>e.g. &quot;DPA hosting&quot;.</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_template.contractor.0" resname="tl_pactum_template.contractor.0">
+                <source>Contractor</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_template.contractor.1" resname="tl_pactum_template.contractor.1">
+                <source>Contractor profile for this template.</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_template.target_page.0" resname="tl_pactum_template.target_page.0">
+                <source>Conclusion page</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_template.target_page.1" resname="tl_pactum_template.target_page.1">
+                <source>Page containing the content element &quot;Pactum: conclude agreement&quot;. Invitation links point to this page.</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_template.invitation_ttl_days.0" resname="tl_pactum_template.invitation_ttl_days.0">
+                <source>Invitation validity (days)</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_template.invitation_ttl_days.1" resname="tl_pactum_template.invitation_ttl_days.1">
+                <source>Empty or 0 = default from the configuration (30 days).</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

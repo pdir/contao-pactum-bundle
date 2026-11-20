@@ -1,0 +1,11 @@
+{% autoescape false %}{{ 'mail.greeting_name'|trans({'%name%': signatory_name}, 'pactum', locale) }}
+
+{{ 'mail.optin.text'|trans({'%contract%': template_title, '%company%': company}, 'pactum', locale) }}
+
+{{ url }}
+
+{{ 'mail.optin.validity'|trans({'%hours%': valid_hours}, 'pactum', locale) }}
+{{ 'mail.optin.ignore'|trans({}, 'pactum', locale) }}
+
+{{ 'mail.closing'|trans({'%contractor%': contractor.name}, 'pactum', locale) }}
+{% endautoescape %}

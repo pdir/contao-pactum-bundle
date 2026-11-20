@@ -1,0 +1,6 @@
+{% trans_default_domain 'pactum' %}
+{# Neutral messages without any details (invalid/expired/revoked links etc.) #}
+<div class="pactum-message pactum-message--{{ state }}" role="status">
+    <h2>{{ ('state.' ~ state ~ '.headline')|trans({}, 'pactum', lang) }}</h2>
+    <p>{{ ('state.' ~ state ~ '.text')|trans({}, 'pactum', lang) }}</p>
+</div>

@@ -1,0 +1,35 @@
+{% trans_default_domain 'pactum' %}
+<section class="pactum-step pactum-step--contract" aria-labelledby="pactum-step-contract">
+    <h2 id="pactum-step-contract">{{ 'step.contract.headline'|trans({}, 'pactum', lang) }}</h2>
+    <p>{{ 'step.contract.text'|trans({'%contract%': contract_title, '%version%': version.versionNumber}, 'pactum', lang) }}</p>
+
+    <dl class="pactum-summary">
+        <dt>{{ 'form.company'|trans({}, 'pactum', lang) }}</dt>
+        <dd>{{ invitation.customer.company }}</dd>
+        <dt>{{ 'form.signatory_name'|trans({}, 'pactum', lang) }}</dt>
+        <dd>{{ invitation.customer.signatoryName }} ({{ invitation.customer.signatoryRole }})</dd>
+    </dl>
+
+    {{ form_start(action_form, {attr: {class: 'pactum-actions pactum-actions--secondary'}}) }}
+        {{ form_widget(action_form) }}
+    {{ form_end(action_form) }}
+
+    <p>
+        <a class="pactum-preview" href="{{ preview_url }}" target="_blank" rel="noopener noreferrer">
+            {{ 'step.contract.preview_pdf'|trans({}, 'pactum', lang) }}
+        </a>
+    </p>
+
+    {# The document has been sanitized and all values escaped by Pactum #}
+    <article class="pactum-document" tabindex="0" aria-label="{{ 'step.contract.document_label'|trans({'%version%': version.versionNumber}, 'pactum', lang) }}">
+        {{ document|raw }}
+    </article>
+
+    <h3>{{ 'step.consent.headline'|trans({}, 'pactum', lang) }}</h3>
+    {{ form_start(consent_form, {attr: {class: 'pactum-form pactum-form--consent'}}) }}
+        {{ form_errors(consent_form) }}
+        {{ form_row(consent_form.read) }}
+        {{ form_row(consent_form.authorized) }}
+        {{ form_row(consent_form.submit) }}
+    {{ form_end(consent_form) }}
+</section>

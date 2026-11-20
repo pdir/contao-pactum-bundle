@@ -1,0 +1,10 @@
+{% trans_default_domain 'pactum' %}
+<section class="pactum-step pactum-step--optin" aria-labelledby="pactum-step-optin">
+    <h2 id="pactum-step-optin">{{ 'step.optin.headline'|trans({}, 'pactum', lang) }}</h2>
+    <p>{{ 'step.optin.text'|trans({'%email%': invitation.customer.signatoryEmail}, 'pactum', lang) }}</p>
+    <p>{{ 'step.optin.hint'|trans({}, 'pactum', lang) }}</p>
+
+    {{ form_start(action_form, {attr: {class: 'pactum-actions'}}) }}
+        {{ form_widget(action_form) }}
+    {{ form_end(action_form) }}
+</section>

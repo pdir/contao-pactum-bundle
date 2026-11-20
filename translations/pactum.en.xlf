@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="pactum">
+        <body>
+            <trans-unit id="date_format" resname="date_format">
+                <source>j F Y</source>
+            </trans-unit>
+            <trans-unit id="annex.heading" resname="annex.heading">
+                <source>Annex %number%: %title%</source>
+            </trans-unit>
+            <trans-unit id="annex.subprocessor.name" resname="annex.subprocessor.name">
+                <source>Sub-processor</source>
+            </trans-unit>
+            <trans-unit id="annex.subprocessor.service" resname="annex.subprocessor.service">
+                <source>Service</source>
+            </trans-unit>
+            <trans-unit id="annex.subprocessor.location" resname="annex.subprocessor.location">
+                <source>Place of processing</source>
+            </trans-unit>
+            <trans-unit id="annex.subprocessor.transfer_basis" resname="annex.subprocessor.transfer_basis">
+                <source>Legal basis for third-country transfer</source>
+            </trans-unit>
+            <trans-unit id="annex.location.eu" resname="annex.location.eu">
+                <source>EU/EEA</source>
+            </trans-unit>
+            <trans-unit id="annex.location.third_country" resname="annex.location.third_country">
+                <source>Third country</source>
+            </trans-unit>
+            <trans-unit id="state.start.headline" resname="state.start.headline">
+                <source>Conclusion of contract</source>
+            </trans-unit>
+            <trans-unit id="state.start.text" resname="state.start.text">
+                <source>Please open the personal link from your invitation to continue.</source>
+            </trans-unit>
+            <trans-unit id="state.invalid.headline" resname="state.invalid.headline">
+                <source>Link not valid</source>
+            </trans-unit>
+            <trans-unit id="state.invalid.text" resname="state.invalid.text">
+                <source>This link is not (or no longer) valid. Please contact your contact person to receive a new link.</source>
+            </trans-unit>
+            <trans-unit id="state.unavailable.headline" resname="state.unavailable.headline">
+                <source>Currently unavailable</source>
+            </trans-unit>
+            <trans-unit id="state.unavailable.text" resname="state.unavailable.text">
+                <source>Concluding the contract is currently not possible. Please try again later or contact your contact person.</source>
+            </trans-unit>
+            <trans-unit id="state.rate_limited.headline" resname="state.rate_limited.headline">
+                <source>Too many requests</source>
+            </trans-unit>
+            <trans-unit id="state.rate_limited.text" resname="state.rate_limited.text">
+                <source>Please wait a few minutes and try again.</source>
+            </trans-unit>
+            <trans-unit id="notice.optin_sent" resname="notice.optin_sent">
+                <source>We have sent you an e-mail with a confirmation link.</source>
+            </trans-unit>
+            <trans-unit id="notice.optin_confirmed" resname="notice.optin_confirmed">
+                <source>Thank you, your e-mail address has been confirmed.</source>
+            </trans-unit>
+            <trans-unit id="notice.optin_invalid" resname="notice.optin_invalid">
+                <source>The confirmation link is not (or no longer) valid. Please request a new one.</source>
+            </trans-unit>
+            <trans-unit id="notice.mail_failed" resname="notice.mail_failed">
+                <source>Unfortunately, the e-mail could not be sent. Please try again later.</source>
+            </trans-unit>
+            <trans-unit id="notice.version_changed" resname="notice.version_changed">
+                <source>The contract has been updated in the meantime. Please review the current version and confirm again.</source>
+            </trans-unit>
+            <trans-unit id="notice.rate_limited" resname="notice.rate_limited">
+                <source>Too many requests. Please wait a few minutes.</source>
+            </trans-unit>
+            <trans-unit id="notice.error" resname="notice.error">
+                <source>An error occurred. Please try again.</source>
+            </trans-unit>
+            <trans-unit id="progress.label" resname="progress.label">
+                <source>Progress</source>
+            </trans-unit>
+            <trans-unit id="progress.data" resname="progress.data">
+                <source>Details</source>
+            </trans-unit>
+            <trans-unit id="progress.optin" resname="progress.optin">
+                <source>Confirm e-mail</source>
+            </trans-unit>
+            <trans-unit id="progress.contract" resname="progress.contract">
+                <source>Contract &amp; consent</source>
+            </trans-unit>
+            <trans-unit id="progress.done" resname="progress.done">
+                <source>Completed</source>
+            </trans-unit>
+            <trans-unit id="step.data.headline" resname="step.data.headline">
+                <source>Your details</source>
+            </trans-unit>
+            <trans-unit id="step.data.text" resname="step.data.text">
+                <source>Please enter the details of your company and of the signing person for &quot;%contract%&quot;.</source>
+            </trans-unit>
+            <trans-unit id="step.optin.headline" resname="step.optin.headline">
+                <source>Please confirm your e-mail address</source>
+            </trans-unit>
+            <trans-unit id="step.optin.text" resname="step.optin.text">
+                <source>We have sent a confirmation link to %email%. Please click the link in the e-mail to continue.</source>
+            </trans-unit>
+            <trans-unit id="step.optin.hint" resname="step.optin.hint">
+                <source>No e-mail received? Please also check your spam folder or request the e-mail again.</source>
+            </trans-unit>
+            <trans-unit id="step.contract.headline" resname="step.contract.headline">
+                <source>Review the contract</source>
+            </trans-unit>
+            <trans-unit id="step.contract.text" resname="step.contract.text">
+                <source>Please read &quot;%contract%&quot; (version %version%) including all annexes.</source>
+            </trans-unit>
+            <trans-unit id="step.contract.preview_pdf" resname="step.contract.preview_pdf">
+                <source>Download preview as PDF</source>
+            </trans-unit>
+            <trans-unit id="step.contract.document_label" resname="step.contract.document_label">
+                <source>Contract text, version %version%</source>
+            </trans-unit>
+            <trans-unit id="step.consent.headline" resname="step.consent.headline">
+                <source>Consent</source>
+            </trans-unit>
+            <trans-unit id="step.done.headline" resname="step.done.headline">
+                <source>Contract concluded</source>
+            </trans-unit>
+            <trans-unit id="step.done.text" resname="step.done.text">
+                <source>Thank you. &quot;%contract%&quot; has been concluded bindingly. You will receive a confirmation with the contract as PDF by e-mail.</source>
+            </trans-unit>
+            <trans-unit id="step.done.reference" resname="step.done.reference">
+                <source>Reference</source>
+            </trans-unit>
+            <trans-unit id="step.done.document_hash" resname="step.done.document_hash">
+                <source>Checksum (SHA-256)</source>
+            </trans-unit>
+            <trans-unit id="step.done.download" resname="step.done.download">
+                <source>Download contract as PDF</source>
+            </trans-unit>
+            <trans-unit id="form.required_hint" resname="form.required_hint">
+                <source>Mandatory fields are marked as required.</source>
+            </trans-unit>
+            <trans-unit id="form.legend_customer" resname="form.legend_customer">
+                <source>Company (controller)</source>
+            </trans-unit>
+            <trans-unit id="form.legend_signatory" resname="form.legend_signatory">
+                <source>Signing person</source>
+            </trans-unit>
+            <trans-unit id="form.company" resname="form.company">
+                <source>Company</source>
+            </trans-unit>
+            <trans-unit id="form.street" resname="form.street">
+                <source>Street and number</source>
+            </trans-unit>
+            <trans-unit id="form.postal" resname="form.postal">
+                <source>Postal code</source>
+            </trans-unit>
+            <trans-unit id="form.city" resname="form.city">
+                <source>City</source>
+            </trans-unit>
+            <trans-unit id="form.country" resname="form.country">
+                <source>Country</source>
+            </trans-unit>
+            <trans-unit id="form.signatory_name" resname="form.signatory_name">
+                <source>First and last name</source>
+            </trans-unit>
+            <trans-unit id="form.signatory_role" resname="form.signatory_role">
+                <source>Position</source>
+            </trans-unit>
+            <trans-unit id="form.signatory_email" resname="form.signatory_email">
+                <source>E-mail address</source>
+            </trans-unit>
+            <trans-unit id="form.signatory_email_help" resname="form.signatory_email_help">
+                <source>We will send a confirmation link and later the contract to this address.</source>
+            </trans-unit>
+            <trans-unit id="form.submit_customer_data" resname="form.submit_customer_data">
+                <source>Continue and confirm e-mail</source>
+            </trans-unit>
+            <trans-unit id="form.submit_consent" resname="form.submit_consent">
+                <source>Conclude DPA bindingly</source>
+            </trans-unit>
+            <trans-unit id="consent.read" resname="consent.read">
+                <source>I have read the contract including its annexes and agree to it.</source>
+            </trans-unit>
+            <trans-unit id="consent.authorized" resname="consent.authorized">
+                <source>I am authorised to conclude this contract on behalf of %company%.</source>
+            </trans-unit>
+            <trans-unit id="action.resend_optin" resname="action.resend_optin">
+                <source>Resend confirmation e-mail</source>
+            </trans-unit>
+            <trans-unit id="action.edit_data" resname="action.edit_data">
+                <source>Change details</source>
+            </trans-unit>
+            <trans-unit id="mail.invitation.subject" resname="mail.invitation.subject">
+                <source>%contractor%: Invitation to conclude the data processing agreement</source>
+            </trans-unit>
+            <trans-unit id="mail.optin.subject" resname="mail.optin.subject">
+                <source>Please confirm your e-mail address</source>
+            </trans-unit>
+            <trans-unit id="mail.agreement_customer.subject" resname="mail.agreement_customer.subject">
+                <source>Confirmation: data processing agreement with %contractor% concluded</source>
+            </trans-unit>
+            <trans-unit id="mail.agreement_contractor.subject" resname="mail.agreement_contractor.subject">
+                <source>DPA concluded: %company%</source>
+            </trans-unit>
+            <trans-unit id="mail.greeting" resname="mail.greeting">
+                <source>Hello,</source>
+            </trans-unit>
+            <trans-unit id="mail.greeting_name" resname="mail.greeting_name">
+                <source>Hello %name%,</source>
+            </trans-unit>
+            <trans-unit id="mail.closing" resname="mail.closing">
+                <source>Kind regards
+%contractor%</source>
+            </trans-unit>
+            <trans-unit id="mail.invitation.text" resname="mail.invitation.text">
+                <source>%contractor% invites you to conclude &quot;%contract%&quot; online. Use the following personal link to review and conclude the contract.</source>
+            </trans-unit>
+            <trans-unit id="mail.invitation.button" resname="mail.invitation.button">
+                <source>Review and conclude contract</source>
+            </trans-unit>
+            <trans-unit id="mail.invitation.expiry" resname="mail.invitation.expiry">
+                <source>The link is valid until %date%. Please only forward it to authorised persons.</source>
+            </trans-unit>
+            <trans-unit id="mail.optin.text" resname="mail.optin.text">
+                <source>please confirm your e-mail address to continue concluding &quot;%contract%&quot; for %company%.</source>
+            </trans-unit>
+            <trans-unit id="mail.optin.button" resname="mail.optin.button">
+                <source>Confirm e-mail address</source>
+            </trans-unit>
+            <trans-unit id="mail.optin.validity" resname="mail.optin.validity">
+                <source>The link is valid for %hours% hours.</source>
+            </trans-unit>
+            <trans-unit id="mail.optin.ignore" resname="mail.optin.ignore">
+                <source>If you did not make this request, you can ignore this e-mail.</source>
+            </trans-unit>
+            <trans-unit id="mail.agreement_customer.text" resname="mail.agreement_customer.text">
+                <source>thank you. The contract &quot;%contract%&quot; (version %version%) has been concluded bindingly for %company%. Please find the contract including the conclusion protocol attached.</source>
+            </trans-unit>
+            <trans-unit id="mail.agreement_contractor.text" resname="mail.agreement_contractor.text">
+                <source>%company% has concluded &quot;%contract%&quot; (version %version%). The contract is attached and available in the back end under Pactum › Agreements.</source>
+            </trans-unit>
+            <trans-unit id="mail.agreement.reference" resname="mail.agreement.reference">
+                <source>Reference: %reference%</source>
+            </trans-unit>
+            <trans-unit id="mail.agreement.hash" resname="mail.agreement.hash">
+                <source>Document checksum (SHA-256): %hash%</source>
+            </trans-unit>
+            <trans-unit id="pdf.preview_watermark" resname="pdf.preview_watermark">
+                <source>PREVIEW</source>
+            </trans-unit>
+            <trans-unit id="pdf.version" resname="pdf.version">
+                <source>Version %version%</source>
+            </trans-unit>
+            <trans-unit id="pdf.between" resname="pdf.between">
+                <source>between</source>
+            </trans-unit>
+            <trans-unit id="pdf.role_controller" resname="pdf.role_controller">
+                <source>– Controller –</source>
+            </trans-unit>
+            <trans-unit id="pdf.role_processor" resname="pdf.role_processor">
+                <source>– Processor –</source>
+            </trans-unit>
+            <trans-unit id="pdf.version_label" resname="pdf.version_label">
+                <source>Contract version</source>
+            </trans-unit>
+            <trans-unit id="pdf.valid_from" resname="pdf.valid_from">
+                <source>Valid from</source>
+            </trans-unit>
+            <trans-unit id="pdf.version_hash" resname="pdf.version_hash">
+                <source>Checksum of contract version (SHA-256)</source>
+            </trans-unit>
+            <trans-unit id="pdf.document_hash" resname="pdf.document_hash">
+                <source>Checksum of document (SHA-256)</source>
+            </trans-unit>
+            <trans-unit id="pdf.protocol" resname="pdf.protocol">
+                <source>Conclusion protocol</source>
+            </trans-unit>
+            <trans-unit id="pdf.reference" resname="pdf.reference">
+                <source>Reference</source>
+            </trans-unit>
+            <trans-unit id="pdf.signatory" resname="pdf.signatory">
+                <source>Signatory</source>
+            </trans-unit>
+            <trans-unit id="pdf.company" resname="pdf.company">
+                <source>Controller</source>
+            </trans-unit>
+            <trans-unit id="pdf.optin_at" resname="pdf.optin_at">
+                <source>E-mail confirmed (double opt-in)</source>
+            </trans-unit>
+            <trans-unit id="pdf.consented_at" resname="pdf.consented_at">
+                <source>Consent given</source>
+            </trans-unit>
+            <trans-unit id="pdf.consents" resname="pdf.consents">
+                <source>Declarations made</source>
+            </trans-unit>
+            <trans-unit id="pdf.protocol_note" resname="pdf.protocol_note">
+                <source>The contract was concluded electronically by consent. The checksums allow proof that this version is unchanged.</source>
+            </trans-unit>
+            <trans-unit id="version_status.draft" resname="version_status.draft">
+                <source>Draft</source>
+            </trans-unit>
+            <trans-unit id="version_status.published" resname="version_status.published">
+                <source>Published</source>
+            </trans-unit>
+            <trans-unit id="version_status.archived" resname="version_status.archived">
+                <source>Archived</source>
+            </trans-unit>
+            <trans-unit id="invitation_status.open" resname="invitation_status.open">
+                <source>Open</source>
+            </trans-unit>
+            <trans-unit id="invitation_status.opted_in" resname="invitation_status.opted_in">
+                <source>E-mail confirmed</source>
+            </trans-unit>
+            <trans-unit id="invitation_status.completed" resname="invitation_status.completed">
+                <source>Completed</source>
+            </trans-unit>
+            <trans-unit id="invitation_status.expired" resname="invitation_status.expired">
+                <source>Expired</source>
+            </trans-unit>
+            <trans-unit id="invitation_status.revoked" resname="invitation_status.revoked">
+                <source>Revoked</source>
+            </trans-unit>
+            <trans-unit id="mail_status.pending" resname="mail_status.pending">
+                <source>Pending</source>
+            </trans-unit>
+            <trans-unit id="mail_status.sent" resname="mail_status.sent">
+                <source>Sent</source>
+            </trans-unit>
+            <trans-unit id="mail_status.failed" resname="mail_status.failed">
+                <source>Failed</source>
+            </trans-unit>
+            <trans-unit id="audit_event.invitation_created" resname="audit_event.invitation_created">
+                <source>Invitation created</source>
+            </trans-unit>
+            <trans-unit id="audit_event.invitation_link_generated" resname="audit_event.invitation_link_generated">
+                <source>Link generated</source>
+            </trans-unit>
+            <trans-unit id="audit_event.invitation_sent" resname="audit_event.invitation_sent">
+                <source>Invitation sent</source>
+            </trans-unit>
+            <trans-unit id="audit_event.invitation_opened" resname="audit_event.invitation_opened">
+                <source>Link opened</source>
+            </trans-unit>
+            <trans-unit id="audit_event.invitation_extended" resname="audit_event.invitation_extended">
+                <source>Expiry extended</source>
+            </trans-unit>
+            <trans-unit id="audit_event.invitation_revoked" resname="audit_event.invitation_revoked">
+                <source>Invitation revoked</source>
+            </trans-unit>
+            <trans-unit id="audit_event.invitation_expired" resname="audit_event.invitation_expired">
+                <source>Invitation expired</source>
+            </trans-unit>
+            <trans-unit id="audit_event.invitation_anonymized" resname="audit_event.invitation_anonymized">
+                <source>Invitation anonymized</source>
+            </trans-unit>
+            <trans-unit id="audit_event.customer_data_submitted" resname="audit_event.customer_data_submitted">
+                <source>Customer data submitted</source>
+            </trans-unit>
+            <trans-unit id="audit_event.customer_data_reopened" resname="audit_event.customer_data_reopened">
+                <source>Customer data reopened for changes</source>
+            </trans-unit>
+            <trans-unit id="audit_event.optin_requested" resname="audit_event.optin_requested">
+                <source>Opt-in mail sent</source>
+            </trans-unit>
+            <trans-unit id="audit_event.optin_confirmed" resname="audit_event.optin_confirmed">
+                <source>Opt-in confirmed</source>
+            </trans-unit>
+            <trans-unit id="audit_event.agreement_completed" resname="audit_event.agreement_completed">
+                <source>Agreement concluded</source>
+            </trans-unit>
+            <trans-unit id="audit_event.agreement_mail_sent" resname="audit_event.agreement_mail_sent">
+                <source>Conclusion mails sent</source>
+            </trans-unit>
+            <trans-unit id="audit_event.agreement_mail_failed" resname="audit_event.agreement_mail_failed">
+                <source>Conclusion mails failed</source>
+            </trans-unit>
+            <trans-unit id="audit_event.agreement_personal_data_purged" resname="audit_event.agreement_personal_data_purged">
+                <source>IP/user agent deleted</source>
+            </trans-unit>
+            <trans-unit id="audit_event.agreement_deleted" resname="audit_event.agreement_deleted">
+                <source>Agreement deleted</source>
+            </trans-unit>
+            <trans-unit id="audit_event.version_published" resname="audit_event.version_published">
+                <source>Version published</source>
+            </trans-unit>
+            <trans-unit id="audit_event.version_archived" resname="audit_event.version_archived">
+                <source>Version archived</source>
+            </trans-unit>
+            <trans-unit id="audit_event.mail_failed" resname="audit_event.mail_failed">
+                <source>Mail delivery failed</source>
+            </trans-unit>
+            <trans-unit id="verify.agreement_exists" resname="verify.agreement_exists">
+                <source>Agreement exists</source>
+            </trans-unit>
+            <trans-unit id="verify.version_exists" resname="verify.version_exists">
+                <source>Contract version exists</source>
+            </trans-unit>
+            <trans-unit id="verify.version_text_matches_version_hash" resname="verify.version_text_matches_version_hash">
+                <source>Version text matches its checksum</source>
+            </trans-unit>
+            <trans-unit id="verify.agreement_version_hash_matches" resname="verify.agreement_version_hash_matches">
+                <source>Checksum in agreement matches the version</source>
+            </trans-unit>
+            <trans-unit id="verify.document_reproducible_from_version" resname="verify.document_reproducible_from_version">
+                <source>Document reproducible from version (informational)</source>
+            </trans-unit>
+            <trans-unit id="verify.document_matches_document_hash" resname="verify.document_matches_document_hash">
+                <source>Document matches its checksum</source>
+            </trans-unit>
+            <trans-unit id="verify.pdf_exists" resname="verify.pdf_exists">
+                <source>PDF exists</source>
+            </trans-unit>
+            <trans-unit id="verify.pdf_matches_pdf_hash" resname="verify.pdf_matches_pdf_hash">
+                <source>PDF matches its checksum</source>
+            </trans-unit>
+            <trans-unit id="be.legal_notice" resname="be.legal_notice">
+                <source>Pactum provides the technical processing. It does not supply legally reviewed contract texts and does not replace legal advice. Contract contents, annexes and retention periods must be reviewed by the operator on their own responsibility (e.g. by a data protection officer or legal counsel).</source>
+            </trans-unit>
+            <trans-unit id="be.back" resname="be.back">
+                <source>Go back</source>
+            </trans-unit>
+            <trans-unit id="be.cancel" resname="be.cancel">
+                <source>Cancel</source>
+            </trans-unit>
+            <trans-unit id="be.contractor.incomplete" resname="be.contractor.incomplete">
+                <source>The contractor profile of the template is missing or incomplete (required: name, address, representative, contact and sender e-mail).</source>
+            </trans-unit>
+            <trans-unit id="be.version.not_draft" resname="be.version.not_draft">
+                <source>Only drafts can be published.</source>
+            </trans-unit>
+            <trans-unit id="be.version.unknown_placeholders" resname="be.version.unknown_placeholders">
+                <source>Unknown or invalid placeholders: %placeholders%</source>
+            </trans-unit>
+            <trans-unit id="be.version.publish_headline" resname="be.version.publish_headline">
+                <source>Publish version %number%</source>
+            </trans-unit>
+            <trans-unit id="be.version.publish_question" resname="be.version.publish_question">
+                <source>Publish version %number% (%language%) of &quot;%template%&quot; now?</source>
+            </trans-unit>
+            <trans-unit id="be.version.publish_hint" resname="be.version.publish_hint">
+                <source>The text including annexes will be frozen and secured with SHA-256. It cannot be changed afterwards. A previously published version in the same language will be archived and no longer used for new agreements.</source>
+            </trans-unit>
+            <trans-unit id="be.version.publish_submit" resname="be.version.publish_submit">
+                <source>Publish</source>
+            </trans-unit>
+            <trans-unit id="be.version.published" resname="be.version.published">
+                <source>Version %number% has been published (SHA-256: %hash%).</source>
+            </trans-unit>
+            <trans-unit id="be.version.preview" resname="be.version.preview">
+                <source>Preview</source>
+            </trans-unit>
+            <trans-unit id="be.version.preview_headline" resname="be.version.preview_headline">
+                <source>Preview of version %number%</source>
+            </trans-unit>
+            <trans-unit id="be.version.preview_hint" resname="be.version.preview_hint">
+                <source>Preview of the draft. Customer specific placeholders are replaced when the agreement is concluded.</source>
+            </trans-unit>
+            <trans-unit id="be.version.frozen" resname="be.version.frozen">
+                <source>Frozen version, SHA-256: %hash%</source>
+            </trans-unit>
+            <trans-unit id="be.version.duplicate_headline" resname="be.version.duplicate_headline">
+                <source>New version from version %number%</source>
+            </trans-unit>
+            <trans-unit id="be.version.duplicate_question" resname="be.version.duplicate_question">
+                <source>Create a new draft with the content of version %number%?</source>
+            </trans-unit>
+            <trans-unit id="be.version.duplicate_submit" resname="be.version.duplicate_submit">
+                <source>Create draft</source>
+            </trans-unit>
+            <trans-unit id="be.version.duplicated" resname="be.version.duplicated">
+                <source>Draft version %number% has been created from version %source%.</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.link_headline" resname="be.invitation.link_headline">
+                <source>Invitation link</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.template" resname="be.invitation.template">
+                <source>Template</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.status" resname="be.invitation.status">
+                <source>Status</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.expires" resname="be.invitation.expires">
+                <source>Valid until</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.no_link" resname="be.invitation.no_link">
+                <source>no link</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.link_hint" resname="be.invitation.link_hint">
+                <source>The link is shown only once. Only a checksum is stored in the database.</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.rotate_hint" resname="be.invitation.rotate_hint">
+                <source>A link has already been generated for this invitation. A new link invalidates the previous one.</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.generate" resname="be.invitation.generate">
+                <source>Generate link</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.generate_send" resname="be.invitation.generate_send">
+                <source>Generate link and send by e-mail</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.link_generated" resname="be.invitation.link_generated">
+                <source>The link has been generated.</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.link" resname="be.invitation.link">
+                <source>Personal link</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.link_once" resname="be.invitation.link_once">
+                <source>Please copy the link now. It cannot be displayed again later, only regenerated.</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.mail_sent" resname="be.invitation.mail_sent">
+                <source>The invitation has been sent by e-mail.</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.mail_failed" resname="be.invitation.mail_failed">
+                <source>The e-mail could not be sent. The link is valid nevertheless.</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.no_active_version" resname="be.invitation.no_active_version">
+                <source>There is no published version for this template and language.</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.not_usable" resname="be.invitation.not_usable">
+                <source>This action is not possible for the invitation in its current status.</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.extend_headline" resname="be.invitation.extend_headline">
+                <source>Extend invitation</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.current_expiry" resname="be.invitation.current_expiry">
+                <source>Currently valid until: %date%</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.extend_days" resname="be.invitation.extend_days">
+                <source>Extend by how many days?</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.extend_submit" resname="be.invitation.extend_submit">
+                <source>Extend</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.extended" resname="be.invitation.extended">
+                <source>The invitation is now valid until %date%.</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.invalid_days" resname="be.invitation.invalid_days">
+                <source>Please enter a positive number of days.</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.revoke_headline" resname="be.invitation.revoke_headline">
+                <source>Revoke invitation</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.revoke_question" resname="be.invitation.revoke_question">
+                <source>Really revoke the invitation? The link becomes invalid immediately. This cannot be undone.</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.revoke_submit" resname="be.invitation.revoke_submit">
+                <source>Revoke</source>
+            </trans-unit>
+            <trans-unit id="be.invitation.revoked" resname="be.invitation.revoked">
+                <source>The invitation has been revoked.</source>
+            </trans-unit>
+            <trans-unit id="be.audit.headline" resname="be.audit.headline">
+                <source>Audit log</source>
+            </trans-unit>
+            <trans-unit id="be.audit.time" resname="be.audit.time">
+                <source>Time</source>
+            </trans-unit>
+            <trans-unit id="be.audit.event" resname="be.audit.event">
+                <source>Event</source>
+            </trans-unit>
+            <trans-unit id="be.audit.actor" resname="be.audit.actor">
+                <source>Actor</source>
+            </trans-unit>
+            <trans-unit id="be.audit.context" resname="be.audit.context">
+                <source>Details</source>
+            </trans-unit>
+            <trans-unit id="be.audit.empty" resname="be.audit.empty">
+                <source>No entries.</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.detail_headline" resname="be.agreement.detail_headline">
+                <source>Agreement: %company%</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.reference" resname="be.agreement.reference">
+                <source>Reference</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.template" resname="be.agreement.template">
+                <source>Template</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.version" resname="be.agreement.version">
+                <source>Version</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.signatory" resname="be.agreement.signatory">
+                <source>Signatory</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.optin_at" resname="be.agreement.optin_at">
+                <source>Opt-in confirmed</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.consented_at" resname="be.agreement.consented_at">
+                <source>Consent</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.consents" resname="be.agreement.consents">
+                <source>Declarations</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.version_hash" resname="be.agreement.version_hash">
+                <source>Version checksum</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.document_hash" resname="be.agreement.document_hash">
+                <source>Document checksum</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.pdf_hash" resname="be.agreement.pdf_hash">
+                <source>PDF checksum</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.client" resname="be.agreement.client">
+                <source>IP address / user agent</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.mail_status" resname="be.agreement.mail_status">
+                <source>Mail delivery</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.verification" resname="be.agreement.verification">
+                <source>Integrity check</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.verified" resname="be.agreement.verified">
+                <source>Evidence intact</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.not_verified" resname="be.agreement.not_verified">
+                <source>Evidence NOT intact</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.download_pdf" resname="be.agreement.download_pdf">
+                <source>Download PDF</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.resend_mail" resname="be.agreement.resend_mail">
+                <source>Resend conclusion mails</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.mail_resent" resname="be.agreement.mail_resent">
+                <source>The conclusion mails have been sent.</source>
+            </trans-unit>
+            <trans-unit id="be.agreement.mail_failed" resname="be.agreement.mail_failed">
+                <source>The conclusion mails could not be sent. See the system log for details.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

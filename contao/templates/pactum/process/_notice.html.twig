@@ -1,0 +1,6 @@
+{% trans_default_domain 'pactum' %}
+{% if notice %}
+    <div class="pactum-notice pactum-notice--{{ notice }}" role="{{ notice in ['error', 'mail_failed', 'optin_invalid', 'version_changed', 'rate_limited'] ? 'alert' : 'status' }}">
+        <p>{{ ('notice.' ~ notice)|trans({}, 'pactum', lang) }}</p>
+    </div>
+{% endif %}

@@ -1,0 +1,10 @@
+{% extends '@Contao/pactum/mail/_layout.html.twig' %}
+{% trans_default_domain 'pactum' %}
+{% block content %}
+    <p>{{ 'mail.greeting_name'|trans({'%name%': signatory_name}, 'pactum', locale) }}</p>
+    <p>{{ 'mail.optin.text'|trans({'%contract%': template_title, '%company%': company}, 'pactum', locale) }}</p>
+    <p><a href="{{ url }}" style="display:inline-block;padding:12px 20px;background:#1f1f1f;color:#ffffff;text-decoration:none;">{{ 'mail.optin.button'|trans({}, 'pactum', locale) }}</a></p>
+    <p style="font-size:13px;color:#666666;">{{ 'mail.optin.validity'|trans({'%hours%': valid_hours}, 'pactum', locale) }}</p>
+    <p style="font-size:13px;color:#666666;">{{ 'mail.optin.ignore'|trans({}, 'pactum', locale) }}</p>
+    <p>{{ 'mail.closing'|trans({'%contractor%': contractor.name}, 'pactum', locale) }}</p>
+{% endblock %}

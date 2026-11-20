@@ -1,0 +1,12 @@
+{% extends '@Contao/be_main.html.twig' %}
+{% trans_default_domain 'pactum' %}
+
+{% block main_content %}
+    <div id="tl_buttons">
+        <a href="{{ back_url }}" class="header_back" accesskey="b">{{ 'be.back'|trans }}</a>
+    </div>
+    <div class="pactum-backend">
+        {% block pactum_content %}{% endblock %}
+        <p class="tl_info pactum-legal">{{ 'be.legal_notice'|trans }}</p>
+    </div>
+{% endblock %}

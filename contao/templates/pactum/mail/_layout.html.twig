@@ -1,0 +1,20 @@
+{% trans_default_domain 'pactum' %}
+<!DOCTYPE html>
+<html lang="{{ locale }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ contractor.name }}{% endblock %}</title>
+</head>
+<body style="margin:0;padding:24px;background:#f5f5f5;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#1f1f1f;">
+    <div style="max-width:600px;margin:0 auto;background:#ffffff;padding:32px;">
+        {% block content %}{% endblock %}
+        <hr style="border:0;border-top:1px solid #dddddd;margin:32px 0 16px;">
+        <p style="font-size:12px;color:#666666;">
+            {{ contractor.name }}<br>
+            {{ contractor.street }}, {{ contractor.postal }} {{ contractor.city }}<br>
+            {{ contractor.contactEmail }}
+        </p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% extends '@Contao/backend/pactum/_layout.html.twig' %}
+{% trans_default_domain 'pactum' %}
+
+{% block pactum_content %}
+    <div class="tl_listing_container">
+        <table class="tl_show">
+            <tbody>
+                <tr><td class="tl_label">{{ 'be.agreement.reference'|trans }}</td><td><code>{{ agreement.uuid }}</code></td></tr>
+                <tr><td class="tl_label">{{ 'be.agreement.template'|trans }}</td><td>{{ template.title|default('–') }}</td></tr>
+                <tr><td class="tl_label">{{ 'be.agreement.version'|trans }}</td><td>v{{ pactum_version.versionNumber|default('?') }} ({{ agreement.language }})</td></tr>
+                <tr><td class="tl_label">{{ 'form.company'|trans }}</td><td>{{ agreement.customer.company }}<br>{{ agreement.customer.street }}, {{ agreement.customer.postal }} {{ agreement.customer.city }} {{ agreement.customer.country }}</td></tr>
+                <tr><td class="tl_label">{{ 'be.agreement.signatory'|trans }}</td><td>{{ agreement.customer.signatoryName }}, {{ agreement.customer.signatoryRole }} ({{ agreement.customer.signatoryEmail }})</td></tr>
+                <tr><td class="tl_label">{{ 'be.agreement.optin_at'|trans }}</td><td>{{ agreement.optInAt ? agreement.optInAt|date('d.m.Y H:i:s') : '–' }}</td></tr>
+                <tr><td class="tl_label">{{ 'be.agreement.consented_at'|trans }}</td><td>{{ agreement.consentedAt|date('d.m.Y H:i:s') }}</td></tr>
+                <tr><td class="tl_label">{{ 'be.agreement.consents'|trans }}</td><td>{% for text in agreement.consentTexts %}☑ {{ text }}<br>{% endfor %}</td></tr>
+                <tr><td class="tl_label">{{ 'be.agreement.version_hash'|trans }}</td><td><code>{{ agreement.versionHash }}</code></td></tr>
+                <tr><td class="tl_label">{{ 'be.agreement.document_hash'|trans }}</td><td><code>{{ agreement.documentHash }}</code></td></tr>
+                <tr><td class="tl_label">{{ 'be.agreement.pdf_hash'|trans }}</td><td><code>{{ agreement.pdfHash }}</code></td></tr>
+                <tr><td class="tl_label">{{ 'be.agreement.client'|trans }}</td><td>{{ agreement.ip ?: '–' }}{% if agreement.userAgent %}<br><small>{{ agreement.userAgent }}</small>{% endif %}</td></tr>
+                <tr><td class="tl_label">{{ 'be.agreement.mail_status'|trans }}</td><td>{{ ('mail_status.' ~ agreement.mailStatus.value)|trans }}</td></tr>
+                <tr>
+                    <td class="tl_label">{{ 'be.agreement.verification'|trans }}</td>
+                    <td>
+                        <strong>{{ (verification.valid ? 'be.agreement.verified' : 'be.agreement.not_verified')|trans }}</strong>
+                        <ul>
+                            {% for check in verification.checks %}
+                                <li>{{ check.passed ? '✔' : (check.critical ? '✘' : '⚠') }} {{ ('verify.' ~ check.name)|trans }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>
+            <a href="{{ pdf_url }}" class="tl_submit">{{ 'be.agreement.download_pdf'|trans }}</a>
+        </p>
+        <form method="post" action="{{ resend_url }}" class="tl_form">
+            <input type="hidden" name="REQUEST_TOKEN" value="{{ contao.request_token }}">
+            <button type="submit" class="tl_submit">{{ 'be.agreement.resend_mail'|trans }}</button>
+        </form>
+
+        <h2 class="sub_headline">{{ 'be.audit.headline'|trans }}</h2>
+        {{ include('@Contao/backend/pactum/_audit_entries.html.twig') }}
+    </div>
+{% endblock %}

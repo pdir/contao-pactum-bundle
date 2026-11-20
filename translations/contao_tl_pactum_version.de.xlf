@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" target-language="de" datatype="plaintext" original="contao_tl_pactum_version">
+        <body>
+            <trans-unit id="tl_pactum_version.version_legend" resname="tl_pactum_version.version_legend">
+                <source>Version</source>
+                <target>Version</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.content_legend" resname="tl_pactum_version.content_legend">
+                <source>Contract text</source>
+                <target>Vertragstext</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.annex_legend" resname="tl_pactum_version.annex_legend">
+                <source>Annexes</source>
+                <target>Anlagen</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.language.0" resname="tl_pactum_version.language.0">
+                <source>Language</source>
+                <target>Sprache</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.language.1" resname="tl_pactum_version.language.1">
+                <source>Language of the contract text. Exactly one version is active per template and language.</source>
+                <target>Sprache des Vertragstexts. Pro Vorlage und Sprache ist genau eine Version aktiv.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.valid_from.0" resname="tl_pactum_version.valid_from.0">
+                <source>Valid from</source>
+                <target>Gültig ab</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.valid_from.1" resname="tl_pactum_version.valid_from.1">
+                <source>Must not be in the future. Empty = date of publishing.</source>
+                <target>Darf nicht in der Zukunft liegen. Leer = Datum der Veröffentlichung.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.change_note.0" resname="tl_pactum_version.change_note.0">
+                <source>Change note</source>
+                <target>Änderungsnotiz</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.change_note.1" resname="tl_pactum_version.change_note.1">
+                <source>Internal note about the changes compared to the previous version.</source>
+                <target>Interne Notiz zu den Änderungen gegenüber der Vorversion.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.content.0" resname="tl_pactum_version.content.0">
+                <source>Contract text</source>
+                <target>Vertragstext</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.content.1" resname="tl_pactum_version.content.1">
+                <source>Contract text with placeholders (see help).</source>
+                <target>Vertragstext mit Platzhaltern (siehe Hilfe).</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.annexes.0" resname="tl_pactum_version.annexes.0">
+                <source>Annexes</source>
+                <target>Anlagen</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.annexes.1" resname="tl_pactum_version.annexes.1">
+                <source>Annexes in the desired order. Their current content is frozen on publishing.</source>
+                <target>Anlagen in der gewünschten Reihenfolge. Beim Veröffentlichen wird der aktuelle Stand eingefroren.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.status.0" resname="tl_pactum_version.status.0">
+                <source>Status</source>
+                <target>Status</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.status.1" resname="tl_pactum_version.status.1">
+                <source></source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.version_number.0" resname="tl_pactum_version.version_number.0">
+                <source>Version number</source>
+                <target>Versionsnummer</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.version_number.1" resname="tl_pactum_version.version_number.1">
+                <source></source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.publish.0" resname="tl_pactum_version.publish.0">
+                <source>Publish</source>
+                <target>Veröffentlichen</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.publish.1" resname="tl_pactum_version.publish.1">
+                <source>Publish version ID %s</source>
+                <target>Version ID %s veröffentlichen</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.new_draft.0" resname="tl_pactum_version.new_draft.0">
+                <source>New version</source>
+                <target>Neue Version</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.new_draft.1" resname="tl_pactum_version.new_draft.1">
+                <source>Create a new draft from version ID %s</source>
+                <target>Neuen Entwurf aus Version ID %s erstellen</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.preview.0" resname="tl_pactum_version.preview.0">
+                <source>Preview</source>
+                <target>Vorschau</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.preview.1" resname="tl_pactum_version.preview.1">
+                <source>Preview of version ID %s</source>
+                <target>Vorschau von Version ID %s</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

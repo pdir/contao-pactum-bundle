@@ -1,0 +1,104 @@
+{
+    "name": "pdir/contao-pactum-bundle",
+    "description": "Pactum – AVV/DPA for Contao: let customers conclude data processing agreements (Art. 28 GDPR) online with invitation link, double opt-in, consent, audit trail and PDF.",
+    "type": "contao-bundle",
+    "keywords": [
+        "contao",
+        "avv",
+        "dpa",
+        "gdpr",
+        "dsgvo",
+        "auftragsverarbeitung",
+        "data-processing-agreement"
+    ],
+    "license": "LGPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "pdir GmbH",
+            "homepage": "https://pdir.de"
+        }
+    ],
+    "homepage": "https://github.com/pdir/contao-pactum-bundle",
+    "support": {
+        "issues": "https://github.com/pdir/contao-pactum-bundle/issues",
+        "source": "https://github.com/pdir/contao-pactum-bundle",
+        "security": "https://github.com/pdir/contao-pactum-bundle/security/policy"
+    },
+    "require": {
+        "php": "^8.3",
+        "contao/core-bundle": "^5.7 || ^6.0",
+        "doctrine/dbal": "^4.4",
+        "dompdf/dompdf": "^3.1",
+        "psr/clock": "^1.0",
+        "psr/log": "^3.0",
+        "symfony/clock": "^7.4 || ^8.0",
+        "symfony/config": "^7.4 || ^8.0",
+        "symfony/console": "^7.4 || ^8.0",
+        "symfony/dependency-injection": "^7.4 || ^8.0",
+        "symfony/event-dispatcher-contracts": "^3.0",
+        "symfony/filesystem": "^7.4 || ^8.0",
+        "symfony/form": "^7.4 || ^8.0",
+        "symfony/html-sanitizer": "^7.4 || ^8.0",
+        "symfony/http-foundation": "^7.4 || ^8.0",
+        "symfony/http-kernel": "^7.4 || ^8.0",
+        "symfony/mailer": "^7.4 || ^8.0",
+        "symfony/mime": "^7.4 || ^8.0",
+        "symfony/rate-limiter": "^7.4 || ^8.0",
+        "symfony/routing": "^7.4 || ^8.0",
+        "symfony/security-bundle": "^7.4 || ^8.0",
+        "symfony/security-core": "^7.4 || ^8.0",
+        "symfony/translation-contracts": "^3.0",
+        "symfony/uid": "^7.4 || ^8.0",
+        "symfony/validator": "^7.4 || ^8.0",
+        "symfony/yaml": "^7.4 || ^8.0",
+        "twig/twig": "^3.25"
+    },
+    "require-dev": {
+        "contao/easy-coding-standard": "^8.0",
+        "contao/manager-plugin": "^2.13",
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpstan/phpstan-symfony": "^2.0",
+        "phpunit/phpunit": "^11.5 || ^12.5"
+    },
+    "suggest": {
+        "terminal42/notification_center": "Planned for 1.1: send Pactum notifications via Notification Center instead of Symfony Mailer."
+    },
+    "conflict": {
+        "contao/manager-plugin": "<2.0 || >=3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pdir\\PactumBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pdir\\PactumBundle\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "contao-components/installer": false,
+            "contao/manager-plugin": false,
+            "php-http/discovery": false,
+            "dealerdirect/phpcodesniffer-composer-installer": false
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "contao-manager-plugin": "Pdir\\PactumBundle\\ContaoManager\\Plugin"
+    },
+    "scripts": {
+        "cs": "vendor/bin/ecs check",
+        "cs-fix": "vendor/bin/ecs check --fix",
+        "phpstan": "vendor/bin/phpstan analyse --memory-limit=1G",
+        "test": "vendor/bin/phpunit --testsuite unit",
+        "test-functional": "vendor/bin/phpunit --testsuite functional",
+        "ci": [
+            "@cs",
+            "@phpstan",
+            "@test"
+        ]
+    }
+}

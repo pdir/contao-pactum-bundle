@@ -1,0 +1,10 @@
+{% autoescape false %}{{ 'mail.greeting'|trans({}, 'pactum', locale) }}
+
+{{ 'mail.invitation.text'|trans({'%contractor%': contractor.name, '%contract%': template_title}, 'pactum', locale) }}
+
+{{ url }}
+
+{{ 'mail.invitation.expiry'|trans({'%date%': expires_at|date('d.m.Y')}, 'pactum', locale) }}
+
+{{ 'mail.closing'|trans({'%contractor%': contractor.name}, 'pactum', locale) }}
+{% endautoescape %}

@@ -1,0 +1,97 @@
+{% trans_default_domain 'pactum' %}
+{#
+    PDF template (dompdf). Overridable. No external resources: the logo is
+    passed as data URI. Variables: data (PdfDocumentData), contractor,
+    customer, version, locale, logo
+#}
+<!DOCTYPE html>
+<html lang="{{ locale }}">
+<head>
+    <meta charset="utf-8">
+    <title>{{ data.templateTitle }}</title>
+    <style>
+        @page { margin: 22mm 18mm 20mm 18mm; }
+        body { font-family: "DejaVu Sans", sans-serif; font-size: 9.5pt; line-height: 1.45; color: #1f1f1f; }
+        h1 { font-size: 18pt; margin: 0 0 6mm; }
+        h2 { font-size: 12pt; margin: 6mm 0 2mm; }
+        h3 { font-size: 10.5pt; margin: 4mm 0 2mm; }
+        table { width: 100%; border-collapse: collapse; margin: 2mm 0; }
+        th, td { border: 0.3mm solid #bbbbbb; padding: 1.5mm; text-align: left; vertical-align: top; }
+        th { background: #f0f0f0; }
+        .cover { page-break-after: always; }
+        .logo { max-height: 18mm; max-width: 60mm; margin-bottom: 12mm; }
+        .parties td { border: 0; padding: 0 4mm 0 0; width: 50%; }
+        .meta { margin-top: 10mm; }
+        .meta td, .protocol td { border: 0; padding: 0.8mm 2mm 0.8mm 0; }
+        .protocol { page-break-before: always; }
+        .hash { font-family: "DejaVu Sans Mono", monospace; font-size: 7.5pt; word-break: break-all; }
+        .preview { position: fixed; top: 40%; left: 0; right: 0; text-align: center; font-size: 60pt; color: #e5e5e5; transform: rotate(-30deg); z-index: -1; }
+        .footer { position: fixed; bottom: -12mm; left: 0; right: 0; font-size: 7pt; color: #777777; }
+    </style>
+</head>
+<body>
+    {% if data.preview %}
+        <div class="preview">{{ 'pdf.preview_watermark'|trans({}, 'pactum', locale) }}</div>
+    {% endif %}
+    <div class="footer">
+        {{ data.templateTitle }} · {{ 'pdf.version'|trans({'%version%': version.versionNumber}, 'pactum', locale) }}{% if data.reference %} · {{ data.reference }}{% endif %}
+    </div>
+
+    <section class="cover">
+        {% if logo %}<img class="logo" src="{{ logo }}" alt="{{ contractor.name }}">{% endif %}
+        <h1>{{ data.templateTitle }}</h1>
+        <p>{{ 'pdf.between'|trans({}, 'pactum', locale) }}</p>
+        <table class="parties">
+            <tr>
+                <td>
+                    <strong>{{ customer.company }}</strong><br>
+                    {{ customer.street }}<br>
+                    {{ customer.postal }} {{ customer.city }}<br>
+                    {{ customer.country }}<br>
+                    <em>{{ 'pdf.role_controller'|trans({}, 'pactum', locale) }}</em>
+                </td>
+                <td>
+                    <strong>{{ contractor.name }}</strong><br>
+                    {{ contractor.street }}<br>
+                    {{ contractor.postal }} {{ contractor.city }}<br>
+                    {{ contractor.country }}<br>
+                    <em>{{ 'pdf.role_processor'|trans({}, 'pactum', locale) }}</em>
+                </td>
+            </tr>
+        </table>
+        <table class="meta">
+            <tr><td>{{ 'pdf.version_label'|trans({}, 'pactum', locale) }}</td><td>{{ version.versionNumber }} ({{ version.language }})</td></tr>
+            {% if version.validFrom %}<tr><td>{{ 'pdf.valid_from'|trans({}, 'pactum', locale) }}</td><td>{{ version.validFrom|date('d.m.Y') }}</td></tr>{% endif %}
+            <tr><td>{{ 'pdf.version_hash'|trans({}, 'pactum', locale) }}</td><td class="hash">{{ version.contentHash }}</td></tr>
+        </table>
+    </section>
+
+    {# Sanitized and escaped by Pactum #}
+    <section class="document">
+        {{ data.documentHtml|raw }}
+    </section>
+
+    {% if not data.preview %}
+        <section class="protocol">
+            <h2>{{ 'pdf.protocol'|trans({}, 'pactum', locale) }}</h2>
+            <table>
+                <tr><td>{{ 'pdf.reference'|trans({}, 'pactum', locale) }}</td><td class="hash">{{ data.reference }}</td></tr>
+                <tr><td>{{ 'pdf.signatory'|trans({}, 'pactum', locale) }}</td><td>{{ customer.signatoryName }}, {{ customer.signatoryRole }} ({{ customer.signatoryEmail }})</td></tr>
+                <tr><td>{{ 'pdf.company'|trans({}, 'pactum', locale) }}</td><td>{{ customer.company }}</td></tr>
+                <tr><td>{{ 'pdf.optin_at'|trans({}, 'pactum', locale) }}</td><td>{{ data.optInAt ? data.optInAt|date('d.m.Y H:i:s T') : '–' }}</td></tr>
+                <tr><td>{{ 'pdf.consented_at'|trans({}, 'pactum', locale) }}</td><td>{{ data.consentedAt|date('d.m.Y H:i:s T') }}</td></tr>
+                <tr><td>{{ 'pdf.version_label'|trans({}, 'pactum', locale) }}</td><td>{{ version.versionNumber }} ({{ version.language }})</td></tr>
+                <tr><td>{{ 'pdf.version_hash'|trans({}, 'pactum', locale) }}</td><td class="hash">{{ version.contentHash }}</td></tr>
+                <tr><td>{{ 'pdf.document_hash'|trans({}, 'pactum', locale) }}</td><td class="hash">{{ data.documentHash }}</td></tr>
+            </table>
+            <h3>{{ 'pdf.consents'|trans({}, 'pactum', locale) }}</h3>
+            <ul>
+                {% for text in data.consentTexts %}
+                    <li>☑ {{ text }}</li>
+                {% endfor %}
+            </ul>
+            <p>{{ 'pdf.protocol_note'|trans({}, 'pactum', locale) }}</p>
+        </section>
+    {% endif %}
+</body>
+</html>

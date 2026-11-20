@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="contao_tl_pactum_subprocessor">
+        <body>
+            <trans-unit id="tl_pactum_subprocessor.subprocessor_legend" resname="tl_pactum_subprocessor.subprocessor_legend">
+                <source>Sub-processor</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_subprocessor.location_legend" resname="tl_pactum_subprocessor.location_legend">
+                <source>Place of processing</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_subprocessor.name.0" resname="tl_pactum_subprocessor.name.0">
+                <source>Name</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_subprocessor.name.1" resname="tl_pactum_subprocessor.name.1">
+                <source></source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_subprocessor.address.0" resname="tl_pactum_subprocessor.address.0">
+                <source>Address</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_subprocessor.address.1" resname="tl_pactum_subprocessor.address.1">
+                <source></source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_subprocessor.service.0" resname="tl_pactum_subprocessor.service.0">
+                <source>Service</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_subprocessor.service.1" resname="tl_pactum_subprocessor.service.1">
+                <source>Type of service or processing.</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_subprocessor.location.0" resname="tl_pactum_subprocessor.location.0">
+                <source>Place of processing</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_subprocessor.location.1" resname="tl_pactum_subprocessor.location.1">
+                <source></source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_subprocessor.locations.eu" resname="tl_pactum_subprocessor.locations.eu">
+                <source>EU/EEA</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_subprocessor.locations.third_country" resname="tl_pactum_subprocessor.locations.third_country">
+                <source>Third country</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_subprocessor.transfer_basis.0" resname="tl_pactum_subprocessor.transfer_basis.0">
+                <source>Legal basis for third-country transfer</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_subprocessor.transfer_basis.1" resname="tl_pactum_subprocessor.transfer_basis.1">
+                <source>e.g. adequacy decision, standard contractual clauses.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,12 @@
+{% trans_default_domain 'pactum' %}
+<nav class="pactum-progress" aria-label="{{ 'progress.label'|trans({}, 'pactum', lang) }}">
+    <ol>
+        {% for item in progress %}
+            <li class="pactum-progress__step{{ item.current ? ' is-current' : '' }}{{ item.done ? ' is-done' : '' }}"{% if item.current %} aria-current="step"{% endif %}>
+                <span class="pactum-progress__number">{{ loop.index }}</span>
+                <span class="pactum-progress__label">{{ ('progress.' ~ item.key)|trans({}, 'pactum', lang) }}</span>
+                {% if item.done %}<span class="visually-hidden"> ({{ 'progress.done'|trans({}, 'pactum', lang) }})</span>{% endif %}
+            </li>
+        {% endfor %}
+    </ol>
+</nav>

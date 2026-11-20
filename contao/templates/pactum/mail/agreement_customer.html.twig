@@ -1,0 +1,9 @@
+{% extends '@Contao/pactum/mail/_layout.html.twig' %}
+{% trans_default_domain 'pactum' %}
+{% block content %}
+    <p>{{ 'mail.greeting_name'|trans({'%name%': signatory_name}, 'pactum', locale) }}</p>
+    <p>{{ 'mail.agreement_customer.text'|trans({'%contract%': template_title, '%company%': company, '%version%': version_number}, 'pactum', locale) }}</p>
+    <p>{{ 'mail.agreement.reference'|trans({'%reference%': agreement.uuid}, 'pactum', locale) }}<br>
+       {{ 'mail.agreement.hash'|trans({'%hash%': agreement.documentHash}, 'pactum', locale) }}</p>
+    <p>{{ 'mail.closing'|trans({'%contractor%': contractor.name}, 'pactum', locale) }}</p>
+{% endblock %}
