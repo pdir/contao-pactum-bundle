@@ -50,6 +50,11 @@ $GLOBALS['TL_DCA']['tl_pactum_version'] = [
                 'icon' => 'copy.svg',
                 'prefetch' => false,
             ],
+            'announce' => [
+                'route' => 'pactum_backend_version_announce',
+                'icon' => 'mgroup.svg',
+                'prefetch' => false,
+            ],
             'preview' => [
                 'route' => 'pactum_backend_version_preview',
                 'icon' => 'show.svg',

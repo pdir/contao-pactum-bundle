@@ -621,6 +621,183 @@
             <trans-unit id="be.agreement.mail_failed" resname="be.agreement.mail_failed">
                 <source>The conclusion mails could not be sent. See the system log for details.</source>
             </trans-unit>
+            <trans-unit id="announcement.change" resname="announcement.change">
+                <source>Change</source>
+            </trans-unit>
+            <trans-unit id="announcement.change.added" resname="announcement.change.added">
+                <source>New</source>
+            </trans-unit>
+            <trans-unit id="announcement.change.changed" resname="announcement.change.changed">
+                <source>Changed</source>
+            </trans-unit>
+            <trans-unit id="announcement.change.removed" resname="announcement.change.removed">
+                <source>Removed</source>
+            </trans-unit>
+            <trans-unit id="objection.headline" resname="objection.headline">
+                <source>Change of sub-processors</source>
+            </trans-unit>
+            <trans-unit id="objection.text" resname="objection.text">
+                <source>%contractor% intends to make the following changes to the sub-processors under the agreement "%contract%" with %company%. The changes take effect on %date%.</source>
+            </trans-unit>
+            <trans-unit id="objection.hint" resname="objection.hint">
+                <source>You may object to new or changed sub-processors until %date%, stating your reasons. Without an objection the change is deemed approved.</source>
+            </trans-unit>
+            <trans-unit id="objection.done.headline" resname="objection.done.headline">
+                <source>Objection received</source>
+            </trans-unit>
+            <trans-unit id="objection.done.text" resname="objection.done.text">
+                <source>Your objection has been forwarded to %contractor%. You will be contacted about how to proceed.</source>
+            </trans-unit>
+            <trans-unit id="objection.done.date" resname="objection.done.date">
+                <source>Received on</source>
+            </trans-unit>
+            <trans-unit id="objection.closed.headline" resname="objection.closed.headline">
+                <source>Objection period ended</source>
+            </trans-unit>
+            <trans-unit id="objection.closed.text" resname="objection.closed.text">
+                <source>The objection period ended on %date%. The change is deemed approved. Please contact %contractor% directly if you have any questions.</source>
+            </trans-unit>
+            <trans-unit id="objection.form.subprocessors" resname="objection.form.subprocessors">
+                <source>Objection against</source>
+            </trans-unit>
+            <trans-unit id="objection.form.subprocessors_required" resname="objection.form.subprocessors_required">
+                <source>Please select at least one sub-processor.</source>
+            </trans-unit>
+            <trans-unit id="objection.form.name" resname="objection.form.name">
+                <source>Your name</source>
+            </trans-unit>
+            <trans-unit id="objection.form.reason" resname="objection.form.reason">
+                <source>Reason</source>
+            </trans-unit>
+            <trans-unit id="objection.form.reason_help" resname="objection.form.reason_help">
+                <source>Please explain why the change is not acceptable to you, e.g. data protection concerns.</source>
+            </trans-unit>
+            <trans-unit id="objection.form.submit" resname="objection.form.submit">
+                <source>Submit objection</source>
+            </trans-unit>
+            <trans-unit id="mail.subprocessor_announcement.subject" resname="mail.subprocessor_announcement.subject">
+                <source>%contractor%: Announcement of a change of sub-processors</source>
+            </trans-unit>
+            <trans-unit id="mail.subprocessor_announcement.text" resname="mail.subprocessor_announcement.text">
+                <source>we intend to make the following changes to the sub-processors under the agreement "%contract%" with %company%:</source>
+            </trans-unit>
+            <trans-unit id="mail.subprocessor_announcement.objection" resname="mail.subprocessor_announcement.objection">
+                <source>You may object to the change within %days% days, i.e. until %date%, stating your reasons:</source>
+            </trans-unit>
+            <trans-unit id="mail.subprocessor_announcement.button" resname="mail.subprocessor_announcement.button">
+                <source>View changes / object</source>
+            </trans-unit>
+            <trans-unit id="mail.subprocessor_announcement.deemed_approved" resname="mail.subprocessor_announcement.deemed_approved">
+                <source>If no objection is received by %date%, the change is deemed approved.</source>
+            </trans-unit>
+            <trans-unit id="mail.subprocessor_objection.subject" resname="mail.subprocessor_objection.subject">
+                <source>%company% objects to the change of sub-processors</source>
+            </trans-unit>
+            <trans-unit id="mail.subprocessor_objection.text" resname="mail.subprocessor_objection.text">
+                <source>%company% has objected to the announced change of sub-processors under the agreement "%contract%".</source>
+            </trans-unit>
+            <trans-unit id="mail.subprocessor_objection.company" resname="mail.subprocessor_objection.company">
+                <source>Company</source>
+            </trans-unit>
+            <trans-unit id="mail.subprocessor_objection.name" resname="mail.subprocessor_objection.name">
+                <source>Submitted by</source>
+            </trans-unit>
+            <trans-unit id="mail.subprocessor_objection.subprocessors" resname="mail.subprocessor_objection.subprocessors">
+                <source>Objection against</source>
+            </trans-unit>
+            <trans-unit id="mail.subprocessor_objection.date" resname="mail.subprocessor_objection.date">
+                <source>Received on</source>
+            </trans-unit>
+            <trans-unit id="mail.subprocessor_objection.reason" resname="mail.subprocessor_objection.reason">
+                <source>Reason</source>
+            </trans-unit>
+            <trans-unit id="mail.subprocessor_objection.hint" resname="mail.subprocessor_objection.hint">
+                <source>The objection is recorded in the back end (Pactum › Sub-processor announcements). Please contact the customer about how to proceed.</source>
+            </trans-unit>
+            <trans-unit id="be.announcement.headline" resname="be.announcement.headline">
+                <source>Announce sub-processor change (version %number%)</source>
+            </trans-unit>
+            <trans-unit id="be.announcement.question" resname="be.announcement.question">
+                <source>Announce the following sub-processor changes of template "%template%" (%language%, draft version %draft% compared with active version %active%)?</source>
+            </trans-unit>
+            <trans-unit id="be.announcement.summary" resname="be.announcement.summary">
+                <source>%count% customer(s) will be informed by e-mail. Objection period: %days% days, until %date%.</source>
+            </trans-unit>
+            <trans-unit id="be.announcement.hint" resname="be.announcement.hint">
+                <source>Each customer receives a personal link to object. Publish the draft only after the objection period has ended and objections have been clarified.</source>
+            </trans-unit>
+            <trans-unit id="be.announcement.submit" resname="be.announcement.submit">
+                <source>Send announcement (%count%)</source>
+            </trans-unit>
+            <trans-unit id="be.announcement.no_recipients" resname="be.announcement.no_recipients">
+                <source>No agreements have been concluded for this template yet, so there is nobody to inform.</source>
+            </trans-unit>
+            <trans-unit id="be.announcement.already_announced" resname="be.announcement.already_announced">
+                <source>The change of this draft has already been announced (objection period until %date%).</source>
+            </trans-unit>
+            <trans-unit id="be.announcement.sent" resname="be.announcement.sent">
+                <source>The announcement has been sent to %sent% customer(s). Objection period until %date%.</source>
+            </trans-unit>
+            <trans-unit id="be.announcement.failed" resname="be.announcement.failed">
+                <source>%failed% e-mail(s) could not be sent. See the recipient list and the system log.</source>
+            </trans-unit>
+            <trans-unit id="be.announcement.publish_running" resname="be.announcement.publish_running">
+                <source>Sub-processor change announced: objection period runs until %date%. Objections so far: %objections% of %recipients% customers.</source>
+            </trans-unit>
+            <trans-unit id="be.announcement.publish_ended" resname="be.announcement.publish_ended">
+                <source>Objection period ended on %date%. Objections: %objections% of %recipients% customers.</source>
+            </trans-unit>
+            <trans-unit id="be.announcement.publish_none" resname="be.announcement.publish_none">
+                <source>If this version changes sub-processors, announce the change to existing customers before publishing.</source>
+            </trans-unit>
+            <trans-unit id="be.announcement.no_objection" resname="be.announcement.no_objection">
+                <source>No objection</source>
+            </trans-unit>
+            <trans-unit id="be.announcement.objected" resname="be.announcement.objected">
+                <source>Objection on %date%</source>
+            </trans-unit>
+            <trans-unit id="audit_event.subprocessor_change_announced" resname="audit_event.subprocessor_change_announced">
+                <source>Sub-processor change announced</source>
+            </trans-unit>
+            <trans-unit id="audit_event.subprocessor_announcement_sent" resname="audit_event.subprocessor_announcement_sent">
+                <source>Sub-processor announcement sent</source>
+            </trans-unit>
+            <trans-unit id="audit_event.subprocessor_objection_received" resname="audit_event.subprocessor_objection_received">
+                <source>Objection to sub-processor change received</source>
+            </trans-unit>
+            <trans-unit id="error.version_not_found" resname="error.version_not_found">
+                <source>Version ID %id% does not exist.</source>
+            </trans-unit>
+            <trans-unit id="error.version_not_draft" resname="error.version_not_draft">
+                <source>Version ID %id% is not a draft (anymore). Published and archived versions cannot be changed.</source>
+            </trans-unit>
+            <trans-unit id="error.version_no_language" resname="error.version_no_language">
+                <source>The version has no language. Please select a language first.</source>
+            </trans-unit>
+            <trans-unit id="error.version_valid_from_future" resname="error.version_valid_from_future">
+                <source>The "valid from" date must not be in the future.</source>
+            </trans-unit>
+            <trans-unit id="error.template_not_found" resname="error.template_not_found">
+                <source>Contract template ID %id% does not exist.</source>
+            </trans-unit>
+            <trans-unit id="error.target_page_not_found" resname="error.target_page_not_found">
+                <source>The target page (ID %id%) of the contract template does not exist. Please check the template settings.</source>
+            </trans-unit>
+            <trans-unit id="error.invitation_changed_concurrently" resname="error.invitation_changed_concurrently">
+                <source>The invitation has been changed in the meantime. Please reload the page and try again.</source>
+            </trans-unit>
+            <trans-unit id="error.invitation_not_extendable" resname="error.invitation_not_extendable">
+                <source>The invitation cannot be extended in its current status.</source>
+            </trans-unit>
+            <trans-unit id="error.announcement.no_active_version" resname="error.announcement.no_active_version">
+                <source>There is no published version in language "%language%" to compare the sub-processors with. Publish a version first.</source>
+            </trans-unit>
+            <trans-unit id="error.announcement.no_changes" resname="error.announcement.no_changes">
+                <source>The sub-processors of this draft do not differ from the active version. Assign the changed sub-processor annex to the draft first.</source>
+            </trans-unit>
+            <trans-unit id="error.announcement.already_announced" resname="error.announcement.already_announced">
+                <source>A change has already been announced for this draft. Create a new draft for further changes.</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

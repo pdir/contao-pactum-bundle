@@ -17,6 +17,8 @@ use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
 use Contao\CoreBundle\Twig\FragmentTemplate;
 use Pdir\PactumBundle\Agreement\AgreementCompleter;
+use Pdir\PactumBundle\Announcement\ObjectionCase;
+use Pdir\PactumBundle\Announcement\ObjectionService;
 use Pdir\PactumBundle\Audit\AuditLogger;
 use Pdir\PactumBundle\Domain\AuditEvent;
 use Pdir\PactumBundle\Domain\CustomerData;
@@ -29,6 +31,7 @@ use Pdir\PactumBundle\Exception\PactumException;
 use Pdir\PactumBundle\Exception\VersionChangedException;
 use Pdir\PactumBundle\Form\ConsentType;
 use Pdir\PactumBundle\Form\CustomerDataType;
+use Pdir\PactumBundle\Form\ObjectionType;
 use Pdir\PactumBundle\Form\ProcessActionType;
 use Pdir\PactumBundle\Frontend\ProcessSession;
 use Pdir\PactumBundle\Invitation\InvitationLinkBuilder;
@@ -87,6 +90,7 @@ class AgreementProcessController extends AbstractContentElementController
         private readonly AuditLogger $auditLogger,
         private readonly ClockInterface $clock,
         private readonly LoggerInterface $logger,
+        private readonly ObjectionService $objections,
         private readonly int $downloadTtlMinutes,
     ) {
     }
@@ -109,9 +113,22 @@ class AgreementProcessController extends AbstractContentElementController
     {
         $session = $request->getSession();
 
+        // Objection link of a sub-processor announcement opened
+        if ($request->query->has(InvitationLinkBuilder::OBJECTION_PARAMETER)) {
+            return $this->handleObjectionLink($template, $request);
+        }
+
         // 1. Invitation link (and opt-in confirmation link) opened
         if ($request->query->has(InvitationLinkBuilder::TOKEN_PARAMETER)) {
+            $this->processSession->clearObjection($session);
+
             return $this->handleTokenLink($template, $request);
+        }
+
+        $objectionRecipientId = $this->processSession->getObjectionRecipientId($session);
+
+        if (null !== $objectionRecipientId) {
+            return $this->handleObjection($template, $request, $objectionRecipientId);
         }
 
         $invitationId = $this->processSession->getInvitationId($session);
@@ -191,6 +208,96 @@ class AgreementProcessController extends AbstractContentElementController
 
         // Remove the token from the address bar, history and referrer
         return new RedirectResponse($this->getCleanUrl($request), Response::HTTP_SEE_OTHER);
+    }
+
+    private function handleObjectionLink(FragmentTemplate $template, Request $request): Response
+    {
+        $session = $request->getSession();
+
+        if (!$this->rateLimiter->allowTokenLookup($request->getClientIp())) {
+            return $this->renderState($template, 'rate_limited');
+        }
+
+        $case = $this->objections->findByToken((string) $request->query->get(InvitationLinkBuilder::OBJECTION_PARAMETER));
+
+        if (null === $case) {
+            $this->processSession->clearObjection($session);
+
+            // Neutral page without details, the token is not echoed
+            return $this->renderState($template, 'invalid');
+        }
+
+        $this->processSession->bindObjection($session, $case->recipient->id);
+
+        // Remove the token from the address bar, history and referrer
+        return new RedirectResponse($this->getCleanUrl($request), Response::HTTP_SEE_OTHER);
+    }
+
+    private function handleObjection(FragmentTemplate $template, Request $request, int $recipientId): Response
+    {
+        $session = $request->getSession();
+        $case = $this->objections->find($recipientId);
+
+        if (null === $case) {
+            $this->processSession->clearObjection($session);
+
+            return $this->renderState($template, 'invalid');
+        }
+
+        $locale = $case->recipient->language ?: $case->announcement->language;
+
+        $template->set('locale', $locale);
+        $template->set('notice', $this->processSession->pullNotice($session));
+
+        if ($case->recipient->hasObjected()) {
+            return $this->renderObjection($template, $case, 'done');
+        }
+
+        if (!$this->objections->isOpen($case)) {
+            return $this->renderObjection($template, $case, 'closed');
+        }
+
+        $form = $this->formFactory->createNamed(
+            'pactum_objection',
+            ObjectionType::class,
+            ['subprocessors' => [], 'name' => $case->recipient->signatoryName, 'reason' => null],
+            ['pactum_locale' => $locale, 'subprocessors' => $case->getObjectableNames()],
+        );
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            if (!$this->rateLimiter->allowObjectionSubmit($request->getClientIp(), $case->recipient->id)) {
+                return $this->renderState($template, 'rate_limited');
+            }
+
+            /** @var array{subprocessors: list<string>, name: string|null, reason: string|null} $data */
+            $data = $form->getData();
+
+            try {
+                // false: objection exists already or the period has just ended – the page
+                // shows the current state
+                $this->objections->submit($case, array_values(array_map('strval', $data['subprocessors'])), (string) $data['name'], (string) $data['reason']);
+            } catch (PactumException) {
+                $this->processSession->setNotice($session, 'error');
+            }
+
+            return new RedirectResponse($this->getCleanUrl($request), Response::HTTP_SEE_OTHER);
+        }
+
+        $template->set('form', $form->createView());
+
+        return $this->renderObjection($template, $case, 'form');
+    }
+
+    private function renderObjection(FragmentTemplate $template, ObjectionCase $case, string $step): Response
+    {
+        $template->set('state', 'objection');
+        $template->set('objection_step', $step);
+        $template->set('objection', $case);
+        $template->set('contract_title', $case->template->title);
+
+        return $template->getResponse();
     }
 
     private function handleDataStep(FragmentTemplate $template, Request $request, Invitation $invitation): Response
@@ -442,7 +549,7 @@ class AgreementProcessController extends AbstractContentElementController
     private function getCleanUrl(Request $request): string
     {
         $query = $request->query->all();
-        unset($query[InvitationLinkBuilder::TOKEN_PARAMETER], $query[InvitationLinkBuilder::OPTIN_PARAMETER]);
+        unset($query[InvitationLinkBuilder::TOKEN_PARAMETER], $query[InvitationLinkBuilder::OPTIN_PARAMETER], $query[InvitationLinkBuilder::OBJECTION_PARAMETER]);
 
         $url = $request->getSchemeAndHttpHost().$request->getBaseUrl().$request->getPathInfo();
 

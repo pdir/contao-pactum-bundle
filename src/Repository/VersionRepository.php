@@ -149,7 +149,7 @@ class VersionRepository
         );
 
         if (1 !== $affected) {
-            throw new VersionLockedException(\sprintf('Version %d is not a draft and cannot be published.', $id));
+            throw new VersionLockedException(\sprintf('Version %d is not a draft and cannot be published.', $id), translationKey: 'error.version_not_draft', translationParameters: ['%id%' => $id]);
         }
     }
 

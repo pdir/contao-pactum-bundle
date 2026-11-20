@@ -1,0 +1,19 @@
+{% autoescape false %}{{ signatory_name ? 'mail.greeting_name'|trans({'%name%': signatory_name}, 'pactum', locale) : 'mail.greeting'|trans({}, 'pactum', locale) }}
+
+{{ 'mail.subprocessor_announcement.text'|trans({'%contractor%': contractor.name, '%contract%': template_title, '%company%': company}, 'pactum', locale) }}
+{% for type, list in {added: changes.added, changed: changes.changed, removed: changes.removed} %}{% for sub in list %}
+
+- {{ ('announcement.change.' ~ type)|trans({}, 'pactum', locale) }}: {{ sub.name }}
+  {{ sub.address|replace({"\n": ', '}) }}
+  {{ sub.service|replace({"\n": ', '}) }} – {{ ('annex.location.' ~ sub.location)|trans({}, 'pactum', locale) }}{% if sub.thirdCountry and sub.transferBasis %} ({{ sub.transferBasis }}){% endif %}
+{% endfor %}{% endfor %}
+
+
+{{ 'mail.subprocessor_announcement.objection'|trans({'%date%': effective_at|date('d.m.Y'), '%days%': notice_days}, 'pactum', locale) }}
+
+{{ url }}
+
+{{ 'mail.subprocessor_announcement.deemed_approved'|trans({'%date%': effective_at|date('d.m.Y')}, 'pactum', locale) }}
+
+{{ 'mail.closing'|trans({'%contractor%': contractor.name}, 'pactum', locale) }}
+{% endautoescape %}

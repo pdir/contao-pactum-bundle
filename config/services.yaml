@@ -12,6 +12,7 @@ services:
             $agreementRetentionDays: '%pactum.agreement_retention_days%'
             $storageDir: '%pactum.storage_dir%'
             $downloadTtlMinutes: '%pactum.download_ttl_minutes%'
+            $subprocessorNoticeDays: '%pactum.subprocessor_notice_days%'
 
     Pdir\PactumBundle\:
         resource: ../src/
@@ -26,6 +27,10 @@ services:
             - ../src/Rendering/HtmlValue.php
             - ../src/Sample/SampleImportResult.php
             - ../src/Subprocessor/SubprocessorImportResult.php
+            - ../src/Subprocessor/SubprocessorChanges.php
+            - ../src/Announcement/AnnouncementPreview.php
+            - ../src/Announcement/AnnouncementResult.php
+            - ../src/Announcement/ObjectionCase.php
 
     Pdir\PactumBundle\Rendering\PlaceholderResolver:
         arguments:

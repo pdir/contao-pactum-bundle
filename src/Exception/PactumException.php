@@ -12,9 +12,34 @@ declare(strict_types=1);
 
 namespace Pdir\PactumBundle\Exception;
 
+use Symfony\Contracts\Translation\TranslatableInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
+
 /**
- * Base exception. Messages must never contain personal data, only IDs.
+ * Base exception. The message is English (logs, console); exceptions shown in the
+ * back end additionally carry a translation key of the "pactum" domain.
  */
-class PactumException extends \RuntimeException
+class PactumException extends \RuntimeException implements TranslatableInterface
 {
+    /**
+     * @param array<string, string|int> $translationParameters
+     */
+    public function __construct(
+        string $message = '',
+        int $code = 0,
+        \Throwable|null $previous = null,
+        private readonly string|null $translationKey = null,
+        private readonly array $translationParameters = [],
+    ) {
+        parent::__construct($message, $code, $previous);
+    }
+
+    public function trans(TranslatorInterface $translator, string|null $locale = null): string
+    {
+        if (null === $this->translationKey) {
+            return $this->getMessage();
+        }
+
+        return $translator->trans($this->translationKey, $this->translationParameters, 'pactum', $locale);
+    }
 }

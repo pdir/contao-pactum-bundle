@@ -42,6 +42,11 @@ class RateLimitGuard
         return $this->submitLimiter->create($this->key('submit', $clientIp.'|'.$invitationId))->consume()->isAccepted();
     }
 
+    public function allowObjectionSubmit(string|null $clientIp, int $recipientId): bool
+    {
+        return $this->submitLimiter->create($this->key('objection', $clientIp.'|'.$recipientId))->consume()->isAccepted();
+    }
+
     public function allowOptInMail(int $invitationId): bool
     {
         return $this->optInMailLimiter->create($this->key('optin', (string) $invitationId))->consume()->isAccepted();

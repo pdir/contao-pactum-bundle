@@ -18,8 +18,10 @@ use Pdir\PactumBundle\Invitation\InvitationService;
 use Pdir\PactumBundle\Maintenance\Cleanup;
 use Pdir\PactumBundle\Pdf\PdfStorage;
 use Pdir\PactumBundle\Repository\AgreementRepository;
+use Pdir\PactumBundle\Repository\AnnouncementRepository;
 use Pdir\PactumBundle\Repository\AuditLogRepository;
 use Pdir\PactumBundle\Repository\InvitationRepository;
+use Pdir\PactumBundle\Subprocessor\SubprocessorChanges;
 use Pdir\PactumBundle\Tests\Fixtures\Factory;
 use Symfony\Component\Clock\MockClock;
 use Symfony\Component\Filesystem\Filesystem;
@@ -113,7 +115,18 @@ class CleanupTest extends DatabaseTestCase
         $this->assertNotNull($oldAgreement);
         $this->assertTrue($storage->exists($oldAgreement->pdfPath));
 
+        $announcements = new AnnouncementRepository($this->getConnection());
+        $announcementId = $announcements->insert('0b7c5f8e-6a43-4c1e-9a55-2f0f1f4f0c11', 10, 1, 'de', new SubprocessorChanges([], [], [], 0, false), 14, self::NOW, self::NOW + 14 * self::DAY, 1);
+
+        $announcements->insertRecipient($announcementId, $old, 'Kunde AG', 'Max Muster', 'old@example.com', 'de', str_repeat('a', 64), self::NOW);
+        $announcements->insertRecipient($announcementId, $young, 'Kunde AG', 'Max Muster', 'young@example.com', 'de', str_repeat('b', 64), self::NOW);
+
         $report = $this->createCleanup(retentionDays: 365)->run();
+
+        // Announcement recipients contain personal data and go with the agreement
+        $remaining = $announcements->findRecipients($announcementId);
+        $this->assertCount(1, $remaining);
+        $this->assertSame($young, $remaining[0]->agreementId);
 
         $this->assertSame(1, $report->deletedAgreements);
         $this->assertNull($repository->find($old));
@@ -137,6 +150,7 @@ class CleanupTest extends DatabaseTestCase
             new MockClock('@'.self::NOW),
             30,
             $retentionDays,
+            new AnnouncementRepository($connection),
         );
     }
 

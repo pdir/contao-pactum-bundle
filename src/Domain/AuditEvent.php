@@ -38,4 +38,7 @@ enum AuditEvent: string
     case VersionPublished = 'version_published';
     case VersionArchived = 'version_archived';
     case MailFailed = 'mail_failed';
+    case SubprocessorChangeAnnounced = 'subprocessor_change_announced';
+    case SubprocessorAnnouncementSent = 'subprocessor_announcement_sent';
+    case SubprocessorObjectionReceived = 'subprocessor_objection_received';
 }

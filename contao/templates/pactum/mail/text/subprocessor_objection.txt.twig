@@ -1,0 +1,12 @@
+{% autoescape false %}{{ 'mail.subprocessor_objection.text'|trans({'%company%': company, '%contract%': template_title}, 'pactum', locale) }}
+
+{{ 'mail.subprocessor_objection.company'|trans({}, 'pactum', locale) }}: {{ company }}
+{{ 'mail.subprocessor_objection.name'|trans({}, 'pactum', locale) }}: {{ objection_name }} ({{ email }})
+{{ 'mail.subprocessor_objection.subprocessors'|trans({}, 'pactum', locale) }}: {{ subprocessors|join(', ') }}
+{{ 'mail.subprocessor_objection.date'|trans({}, 'pactum', locale) }}: {{ objected_at|date('d.m.Y H:i') }}
+
+{{ 'mail.subprocessor_objection.reason'|trans({}, 'pactum', locale) }}:
+{{ reason }}
+
+{{ 'mail.subprocessor_objection.hint'|trans({}, 'pactum', locale) }}
+{% endautoescape %}

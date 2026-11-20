@@ -37,6 +37,18 @@ vendor/bin/contao-console contao:migrate
 
 or install it via the Contao Manager and run the database update afterwards.
 
+After installing or updating via Composer, clear the cache (the Contao Manager
+does this automatically):
+
+```bash
+vendor/bin/contao-console cache:clear
+```
+
+Otherwise Contao may use an outdated template list, e.g. the error "Tried to
+list template options for the modern fragment type
+"content_element/pactum_agreement" but could not find any template" when
+editing the content element.
+
 ### Setup
 
 1. **Settings (contractor):** create a contractor profile (your company). Name,
@@ -58,7 +70,7 @@ or install it via the Contao Manager and run the database update afterwards.
 ### Permissions
 
 Access is granted per back end module in the user/user group settings:
-*Contract templates*, *Annexes*, *Invitations*, *Agreements*, *Settings*. For
+*Contract templates*, *Annexes*, *Invitations*, *Agreements*, *Settings*, *Sub-processor announcements*. For
 example, sales staff can get *Invitations* only, while only administrators can
 publish templates.
 
@@ -77,6 +89,7 @@ pactum:
     agreement_retention_days: ~      # delete agreements after N days (default: never)
     storage_dir: '%kernel.project_dir%/var/pactum'   # PDF storage, never public
     download_ttl_minutes: 15         # lifetime of signed frontend download links
+    subprocessor_notice_days: 14     # objection period for sub-processor changes
 ```
 
 Rate limits (`pactum_token`, `pactum_submit`, `pactum_optin_mail`) are prepended
@@ -159,6 +172,9 @@ vendor/bin/contao-console pactum:subprocessor:import <annex-id> subprocessors.ya
 vendor/bin/contao-console pactum:subprocessor:import <annex-id> subprocessors.yaml
 ```
 
+A sample list with fictitious providers is available in
+`samples/subprocessors.en.yaml` (German keys: `samples/subprocessors.de.yaml`).
+
 ```yaml
 subprocessors:             # or: subunternehmer, or a top-level list
   - name: "Hosting Ltd."
@@ -176,7 +192,33 @@ subprocessors:             # or: subunternehmer, or a top-level list
   `--dry-run` only shows the changes.
 - Published versions are not changed. Publish a new version so that new
   agreements contain the list. New sub-processors usually have to be announced to
-  existing customers in advance.
+  existing customers in advance (see below).
+
+### Announce a change of sub-processors
+
+Art. 28(2) GDPR requires that customers are informed about new or replaced
+sub-processors in advance and can object.
+
+1. Create a new draft version of the template and assign the changed
+   sub-processor annex (e.g. after `pactum:subprocessor:import`).
+2. In the version list choose **Announce change** on the draft. Pactum compares
+   the sub-processors of the draft with the active version of the same language
+   and shows new, changed and removed entries and the number of recipients.
+3. After confirming, every customer of the template (one recipient per e-mail
+   address, the newest agreement each) receives a mail with the list of changes,
+   the end of the objection period (`subprocessor_notice_days`, default 14 days)
+   and a personal link.
+4. The link opens the target page of the template with an objection form:
+   selection of the affected new/changed sub-processors, name and reason
+   (required). Each recipient can object once and only until the end of the
+   period. The contractor is notified via the BCC or contact address.
+5. Status, mail delivery and objections are listed in the module
+   **Sub-processor announcements**; every step is written to the audit log. When
+   publishing the draft, Pactum shows the end of the period and the number of
+   objections but does not block. How to handle objections is up to you.
+
+Like invitation tokens, only the SHA-256 hash of the token is stored. Recipients
+are deleted together with their agreement (`agreement_retention_days`).
 
 ## Extending
 
@@ -207,8 +249,6 @@ subprocessors:             # or: subunternehmer, or a top-level list
 
 - Re-consent: detect customers on an older version and re-invite them in bulk;
   diff view old/new in the front end.
-- Change of sub-processors: information mail to affected customers, objection
-  period, objection via link incl. audit log (Art. 28(2) GDPR).
 - Automatic reminders for open invitations (cron).
 - Optional Notification Center integration (`terminal42/notification_center`).
 - Several agreement types per customer and customer master data as own entity.

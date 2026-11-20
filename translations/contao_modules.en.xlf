@@ -35,6 +35,12 @@
             <trans-unit id="MOD.pactum_contractors.1" resname="MOD.pactum_contractors.1">
                 <source>Manage contractor profiles.</source>
             </trans-unit>
+            <trans-unit id="MOD.pactum_announcements.0" resname="MOD.pactum_announcements.0">
+                <source>Sub-processor announcements</source>
+            </trans-unit>
+            <trans-unit id="MOD.pactum_announcements.1" resname="MOD.pactum_announcements.1">
+                <source>Announcements of sub-processor changes and objections.</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="contao_tl_pactum_announcement_recipient">
+        <body>
+            <trans-unit id="tl_pactum_announcement_recipient.agreement.0" resname="tl_pactum_announcement_recipient.agreement.0">
+                <source>Agreement</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.agreement.1" resname="tl_pactum_announcement_recipient.agreement.1">
+                <source>ID of the agreement.</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.company.0" resname="tl_pactum_announcement_recipient.company.0">
+                <source>Company</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.company.1" resname="tl_pactum_announcement_recipient.company.1">
+                <source>Customer company.</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.signatory_name.0" resname="tl_pactum_announcement_recipient.signatory_name.0">
+                <source>Signatory</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.signatory_name.1" resname="tl_pactum_announcement_recipient.signatory_name.1">
+                <source>Name of the signatory.</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.email.0" resname="tl_pactum_announcement_recipient.email.0">
+                <source>E-mail address</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.email.1" resname="tl_pactum_announcement_recipient.email.1">
+                <source>Recipient of the announcement.</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.language.0" resname="tl_pactum_announcement_recipient.language.0">
+                <source>Language</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.language.1" resname="tl_pactum_announcement_recipient.language.1">
+                <source>Language of the e-mail.</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.mail_status.0" resname="tl_pactum_announcement_recipient.mail_status.0">
+                <source>Mail status</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.mail_status.1" resname="tl_pactum_announcement_recipient.mail_status.1">
+                <source>Delivery status of the announcement.</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.mail_statuses.pending" resname="tl_pactum_announcement_recipient.mail_statuses.pending">
+                <source>Pending</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.mail_statuses.sent" resname="tl_pactum_announcement_recipient.mail_statuses.sent">
+                <source>Sent</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.mail_statuses.failed" resname="tl_pactum_announcement_recipient.mail_statuses.failed">
+                <source>Failed</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.objected_at.0" resname="tl_pactum_announcement_recipient.objected_at.0">
+                <source>Objection on</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.objected_at.1" resname="tl_pactum_announcement_recipient.objected_at.1">
+                <source>Date of the objection.</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.objection_name.0" resname="tl_pactum_announcement_recipient.objection_name.0">
+                <source>Objection by</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.objection_name.1" resname="tl_pactum_announcement_recipient.objection_name.1">
+                <source>Name entered in the objection form.</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.objection_subprocessors.0" resname="tl_pactum_announcement_recipient.objection_subprocessors.0">
+                <source>Objection against</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.objection_subprocessors.1" resname="tl_pactum_announcement_recipient.objection_subprocessors.1">
+                <source>Selected sub-processors (JSON).</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.objection_reason.0" resname="tl_pactum_announcement_recipient.objection_reason.0">
+                <source>Reason</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement_recipient.objection_reason.1" resname="tl_pactum_announcement_recipient.objection_reason.1">
+                <source>Reason given by the customer.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

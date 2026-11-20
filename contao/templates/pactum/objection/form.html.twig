@@ -1,0 +1,18 @@
+{% trans_default_domain 'pactum' %}
+<section class="pactum-step pactum-step--objection" aria-labelledby="pactum-objection">
+    <h2 id="pactum-objection">{{ 'objection.headline'|trans({}, 'pactum', locale) }}</h2>
+    <p>{{ 'objection.text'|trans({'%contractor%': objection.contractor.name, '%contract%': contract_title, '%company%': objection.recipient.company, '%date%': objection.announcement.effectiveAt|date('d.m.Y')}, 'pactum', locale) }}</p>
+
+    {{ include('@Contao/pactum/objection/_changes.html.twig', {changes: objection.announcement.changes}) }}
+
+    <p>{{ 'objection.hint'|trans({'%date%': objection.announcement.effectiveAt|date('d.m.Y')}, 'pactum', locale) }}</p>
+    <p class="pactum-required-hint">{{ 'form.required_hint'|trans({}, 'pactum', locale) }}</p>
+
+    {{ form_start(form, {attr: {class: 'pactum-form', novalidate: 'novalidate'}}) }}
+        {{ form_errors(form) }}
+        {{ form_row(form.subprocessors) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.reason) }}
+        {{ form_row(form.submit) }}
+    {{ form_end(form) }}
+</section>

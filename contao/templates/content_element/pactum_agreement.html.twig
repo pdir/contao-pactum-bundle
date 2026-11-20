@@ -15,6 +15,9 @@
             {{ include('@Contao/pactum/process/_progress.html.twig') }}
             {{ include('@Contao/pactum/process/_notice.html.twig') }}
             {{ include('@Contao/pactum/process/' ~ step ~ '.html.twig') }}
+        {% elseif state == 'objection' %}
+            {{ include('@Contao/pactum/process/_notice.html.twig') }}
+            {{ include('@Contao/pactum/objection/' ~ objection_step ~ '.html.twig') }}
         {% else %}
             {{ include('@Contao/pactum/process/_message.html.twig') }}
         {% endif %}

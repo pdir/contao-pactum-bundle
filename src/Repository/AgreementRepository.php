@@ -108,6 +108,18 @@ class AgreementRepository
     }
 
     /**
+     * All agreements of a contract template, newest first.
+     *
+     * @return list<Agreement>
+     */
+    public function findByTemplate(int $templateId): array
+    {
+        $rows = $this->connection->fetchAllAssociative('SELECT * FROM '.self::TABLE.' WHERE template = ? ORDER BY consented_at DESC, id DESC', [$templateId]);
+
+        return array_map($this->hydrate(...), $rows);
+    }
+
+    /**
      * @return list<Agreement>
      */
     public function findConcludedBefore(int $timestamp): array
