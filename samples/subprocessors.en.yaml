@@ -1,0 +1,30 @@
+# Sample list for pactum:subprocessor:import (fictitious providers).
+#
+#   vendor/bin/contao-console pactum:subprocessor:import <annex-id> subprocessors.en.yaml --dry-run
+#
+# EU/EEA or third country is derived from the country. Third countries need a
+# "transfer_basis" naming the legal basis of the transfer (Art. 44 ff. GDPR).
+# The country is added as the last address line.
+
+subprocessors:
+  - name: "Sample Hosting GmbH"
+    address:
+      - "Serverweg 1"
+      - "12345 Musterstadt"
+    service: "Web hosting and backups"
+    country: "Germany"
+
+  - name: "Sample Mail SARL"
+    address:
+      - "1 Rue de l'Exemple"
+      - "75000 Paris"
+    service: "Sending e-mails"
+    country: "France"
+
+  - name: "Example Support Inc."
+    address:
+      - "100 Sample Street"
+      - "San Francisco, CA 94000"
+    service: "Ticket system for customer support"
+    country: "USA"
+    transfer_basis: "EU-US Data Privacy Framework (adequacy decision of the European Commission)"
