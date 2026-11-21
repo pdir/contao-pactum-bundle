@@ -79,6 +79,7 @@ class VersionListener
     #[AsCallback(table: 'tl_pactum_version', target: 'list.operations.edit.button')]
     #[AsCallback(table: 'tl_pactum_version', target: 'list.operations.delete.button')]
     #[AsCallback(table: 'tl_pactum_version', target: 'list.operations.publish.button')]
+    #[AsCallback(table: 'tl_pactum_version', target: 'list.operations.announce.button')]
     public function onlyForDrafts(DataContainerOperation $operation): void
     {
         if (VersionStatus::Draft->value !== ($operation->getRecord()['status'] ?? null)) {

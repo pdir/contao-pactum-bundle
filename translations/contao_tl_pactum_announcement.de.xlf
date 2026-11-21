@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" target-language="de" datatype="plaintext" original="contao_tl_pactum_announcement">
+        <body>
+            <trans-unit id="tl_pactum_announcement.template.0" resname="tl_pactum_announcement.template.0">
+                <source>Template</source>
+                <target>Vorlage</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.template.1" resname="tl_pactum_announcement.template.1">
+                <source>Contract template.</source>
+                <target>Vertragsvorlage.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.version.0" resname="tl_pactum_announcement.version.0">
+                <source>Draft version</source>
+                <target>Entwurfsversion</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.version.1" resname="tl_pactum_announcement.version.1">
+                <source>ID of the announced draft version.</source>
+                <target>ID der angekündigten Entwurfsversion.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.language.0" resname="tl_pactum_announcement.language.0">
+                <source>Language</source>
+                <target>Sprache</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.language.1" resname="tl_pactum_announcement.language.1">
+                <source>Language of the version.</source>
+                <target>Sprache der Version.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.changes.0" resname="tl_pactum_announcement.changes.0">
+                <source>Changes</source>
+                <target>Änderungen</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.changes.1" resname="tl_pactum_announcement.changes.1">
+                <source>Announced sub-processor changes (JSON).</source>
+                <target>Angekündigte Subunternehmer-Änderungen (JSON).</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.notice_days.0" resname="tl_pactum_announcement.notice_days.0">
+                <source>Objection period (days)</source>
+                <target>Widerspruchsfrist (Tage)</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.notice_days.1" resname="tl_pactum_announcement.notice_days.1">
+                <source>Length of the objection period.</source>
+                <target>Länge der Widerspruchsfrist.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.sent_at.0" resname="tl_pactum_announcement.sent_at.0">
+                <source>Announced on</source>
+                <target>Angekündigt am</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.sent_at.1" resname="tl_pactum_announcement.sent_at.1">
+                <source>Date of the announcement.</source>
+                <target>Datum der Ankündigung.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.effective_at.0" resname="tl_pactum_announcement.effective_at.0">
+                <source>Objection period until</source>
+                <target>Widerspruchsfrist bis</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.effective_at.1" resname="tl_pactum_announcement.effective_at.1">
+                <source>End of the objection period.</source>
+                <target>Ende der Widerspruchsfrist.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.created_by.0" resname="tl_pactum_announcement.created_by.0">
+                <source>Announced by</source>
+                <target>Angekündigt von</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.created_by.1" resname="tl_pactum_announcement.created_by.1">
+                <source>Back end user ID.</source>
+                <target>ID des Backend-Benutzers.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.recipient_count.0" resname="tl_pactum_announcement.recipient_count.0">
+                <source>Recipients</source>
+                <target>Empfänger</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.recipient_count.1" resname="tl_pactum_announcement.recipient_count.1">
+                <source>Number of informed customers.</source>
+                <target>Anzahl informierter Kunden.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.objection_count.0" resname="tl_pactum_announcement.objection_count.0">
+                <source>Objections</source>
+                <target>Widersprüche</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.objection_count.1" resname="tl_pactum_announcement.objection_count.1">
+                <source>Number of objections.</source>
+                <target>Anzahl der Widersprüche.</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.uuid.0" resname="tl_pactum_announcement.uuid.0">
+                <source>UUID</source>
+                <target>UUID</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_announcement.uuid.1" resname="tl_pactum_announcement.uuid.1">
+                <source>Unique identifier.</source>
+                <target>Eindeutige Kennung.</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

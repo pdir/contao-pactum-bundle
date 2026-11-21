@@ -71,6 +71,12 @@
             <trans-unit id="tl_pactum_version.preview.1" resname="tl_pactum_version.preview.1">
                 <source>Preview of version ID %s</source>
             </trans-unit>
+            <trans-unit id="tl_pactum_version.announce.0" resname="tl_pactum_version.announce.0">
+                <source>Announce change</source>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.announce.1" resname="tl_pactum_version.announce.1">
+                <source>Announce the sub-processor changes of version ID %s</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

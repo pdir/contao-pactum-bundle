@@ -40,6 +40,18 @@ vendor/bin/contao-console contao:migrate
 oder über den Contao Manager installieren und anschließend die Datenbank
 aktualisieren.
 
+Nach einer Installation oder einem Update per Composer den Cache leeren (der
+Contao Manager erledigt das automatisch):
+
+```bash
+vendor/bin/contao-console cache:clear
+```
+
+Sonst nutzt Contao unter Umständen eine veraltete Template-Liste, z. B. mit
+dem Fehler „Tried to list template options for the modern fragment type
+"content_element/pactum_agreement" but could not find any template“ beim
+Bearbeiten des Inhaltselements.
+
 ### Einrichtung
 
 1. **Einstellungen (Auftragnehmer):** Lege ein Auftragnehmer-Profil (dein
@@ -64,7 +76,7 @@ aktualisieren.
 
 Der Zugriff wird pro Backend-Modul in den Benutzer-/Gruppeneinstellungen
 vergeben: *Vertragsvorlagen*, *Anlagen*, *Einladungen*, *Abschlüsse*,
-*Einstellungen*. So kann z. B. der Vertrieb nur *Einladungen* erhalten, während
+*Einstellungen*, *Subunternehmer-Ankündigungen*. So kann z. B. der Vertrieb nur *Einladungen* erhalten, während
 nur Admins Vorlagen veröffentlichen.
 
 ## Konfiguration
@@ -82,6 +94,7 @@ pactum:
     agreement_retention_days: ~      # Abschlüsse nach N Tagen löschen (Standard: nie)
     storage_dir: '%kernel.project_dir%/var/pactum'   # PDF-Ablage, nie öffentlich
     download_ttl_minutes: 15         # Gültigkeit signierter Download-Links im Frontend
+    subprocessor_notice_days: 14     # Widerspruchsfrist bei Subunternehmer-Änderungen
 ```
 
 Die Rate-Limits (`pactum_token`, `pactum_submit`, `pactum_optin_mail`) werden in
@@ -165,6 +178,9 @@ vendor/bin/contao-console pactum:subprocessor:import <anlagen-id> subunternehmer
 vendor/bin/contao-console pactum:subprocessor:import <anlagen-id> subunternehmer.yaml
 ```
 
+Eine Beispielliste mit fiktiven Anbietern liegt in
+`samples/subprocessors.de.yaml` (englische Schlüssel: `samples/subprocessors.en.yaml`).
+
 ```yaml
 subunternehmer:            # oder: subprocessors, oder eine Liste auf oberster Ebene
   - name: "Hosting GmbH"
@@ -183,7 +199,36 @@ subunternehmer:            # oder: subprocessors, oder eine Liste auf oberster E
   `--dry-run` zeigt nur die Änderungen.
 - Veröffentlichte Versionen bleiben unverändert. Damit neue Abschlüsse die Liste
   enthalten, eine neue Version veröffentlichen. Neue Unterauftragsverarbeiter
-  müssen Bestandskunden in der Regel vorab angekündigt werden.
+  müssen Bestandskunden in der Regel vorab angekündigt werden (siehe unten).
+
+### Änderung von Unterauftragsverarbeitern ankündigen
+
+Art. 28 Abs. 2 DSGVO verlangt, dass Kunden über neue oder ersetzte
+Unterauftragsverarbeiter vorab informiert werden und widersprechen können.
+
+1. Neue Entwurfsversion der Vorlage anlegen und die geänderte
+   Subunternehmer-Anlage zuordnen (z. B. nach `pactum:subprocessor:import`).
+2. In der Versionsliste beim Entwurf **Änderung ankündigen** wählen. Pactum
+   vergleicht die Subunternehmer des Entwurfs mit der aktiven Version gleicher
+   Sprache und zeigt neue, geänderte und entfallene Einträge sowie die Zahl der
+   Empfänger.
+3. Nach dem Bestätigen erhält jeder Kunde der Vorlage (ein Empfänger pro
+   E-Mail-Adresse, jeweils der neueste Abschluss) eine Mail mit der
+   Änderungsliste, dem Fristende (`subprocessor_notice_days`, Standard 14 Tage)
+   und einem persönlichen Link.
+4. Über den Link öffnet sich die Zielseite der Vorlage mit einem
+   Widerspruchsformular: Auswahl der betroffenen neuen/geänderten Subunternehmer,
+   Name und Begründung (Pflicht). Ein Widerspruch ist pro Empfänger einmal und nur
+   bis zum Fristende möglich. Der Auftragnehmer erhält eine Benachrichtigung an die
+   BCC- bzw. Kontaktadresse.
+5. Status, Mailversand und Widersprüche stehen im Modul
+   **Subunternehmer-Ankündigungen**; alle Schritte landen im Audit-Log. Beim
+   Veröffentlichen des Entwurfs zeigt Pactum Fristende und Zahl der Widersprüche
+   an, blockiert aber nicht. Über den Umgang mit Widersprüchen entscheidest du.
+
+Tokens werden wie bei Einladungen nur als SHA-256-Hash gespeichert. Empfänger
+werden zusammen mit dem zugehörigen Abschluss gelöscht
+(`agreement_retention_days`).
 
 ## Erweitern
 
@@ -215,8 +260,6 @@ subunternehmer:            # oder: subprocessors, oder eine Liste auf oberster E
 
 - Re-Consent: Kunden mit älterer Version erkennen und per Massenaktion neu
   einladen; Diff-Ansicht alt/neu im Frontend.
-- Änderung von Unterauftragsverarbeitern: Informationsmail an betroffene Kunden,
-  Widerspruchsfrist, Widerspruch per Link inkl. Protokoll (Art. 28 Abs. 2 DSGVO).
 - Automatische Erinnerungen bei offenen Einladungen (Cron).
 - Optionale Notification-Center-Anbindung (`terminal42/notification_center`).
 - Mehrere Vertragstypen pro Kunde und Kundenstammdaten als eigene Entität.

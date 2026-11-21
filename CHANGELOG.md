@@ -10,6 +10,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - `pactum:subprocessor:import` replaces the sub-processors of an annex with a
   YAML list (German or English keys, `--dry-run`, EU/third-country detection).
+- Announcement of sub-processor changes (Art. 28(2) GDPR): "Announce change" on
+  a draft version compares its sub-processors with the active version and mails
+  all customers of the template a personal objection link. Objections (selection,
+  name, reason) are recorded until the end of the period
+  (`pactum.subprocessor_notice_days`, default 14) and forwarded to the
+  contractor. New back end module "Sub-processor announcements", hint on the
+  publish page, audit events and clean-up together with the agreement.
+
+### Changed
+
+- The import diff for sub-processors is shared with the announcement
+  (`SubprocessorDiff`); behaviour of `pactum:subprocessor:import` is unchanged.
+- Error messages in the back end are translated (German/English). Exceptions
+  carry an optional translation key; the English message remains for logs and
+  the console.
 
 ## [0.1.0] - unreleased
 

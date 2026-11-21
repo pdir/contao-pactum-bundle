@@ -86,7 +86,7 @@ class InvitationService
         $contractor = $this->contractors->find($template->contractorId);
 
         if (null === $contractor || !$contractor->isComplete()) {
-            throw new IncompleteContractorException(\sprintf('The contractor profile of template %d is missing or incomplete.', $template->id));
+            throw new IncompleteContractorException(\sprintf('The contractor profile of template %d is missing or incomplete.', $template->id), translationKey: 'be.contractor.incomplete');
         }
 
         if (null === $this->versions->findActive($template->id, $invitation->language)) {
@@ -147,7 +147,7 @@ class InvitationService
         $this->stateMachine->assert($invitation->status, InvitationStatus::Revoked);
 
         if (!$this->invitations->transition($invitationId, $invitation->status, InvitationStatus::Revoked, $now, ['token_hash' => null])) {
-            throw new InvalidStatusTransitionException(\sprintf('Invitation %d was changed concurrently.', $invitationId));
+            throw new InvalidStatusTransitionException(\sprintf('Invitation %d was changed concurrently.', $invitationId), translationKey: 'error.invitation_changed_concurrently');
         }
 
         $this->auditLogger->log(AuditEvent::InvitationRevoked, $invitationId);
@@ -169,7 +169,7 @@ class InvitationService
         $invitation = $this->requireInvitation($invitationId);
 
         if ($invitation->status->isFinal()) {
-            throw new InvalidStatusTransitionException(\sprintf('Invitation %d is %s and cannot be extended.', $invitationId, $invitation->status->value));
+            throw new InvalidStatusTransitionException(\sprintf('Invitation %d is %s and cannot be extended.', $invitationId, $invitation->status->value), translationKey: 'error.invitation_not_extendable');
         }
 
         $base = (new \DateTimeImmutable('@'.max($now, $invitation->expiresAt)))->setTimezone($this->clock->now()->getTimezone());

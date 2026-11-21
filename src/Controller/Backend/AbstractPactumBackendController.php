@@ -15,6 +15,7 @@ namespace Pdir\PactumBundle\Controller\Backend;
 use Contao\CoreBundle\Controller\AbstractBackendController;
 use Contao\CoreBundle\Csrf\ContaoCsrfTokenManager;
 use Contao\CoreBundle\Security\ContaoCorePermissions;
+use Pdir\PactumBundle\Exception\PactumException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\FlashBagAwareSessionInterface;
@@ -38,6 +39,8 @@ abstract class AbstractPactumBackendController extends AbstractBackendController
     public const MODULE_INVITATIONS = 'pactum_invitations';
 
     public const MODULE_AGREEMENTS = 'pactum_agreements';
+
+    public const MODULE_ANNOUNCEMENTS = 'pactum_announcements';
 
     public static function getSubscribedServices(): array
     {
@@ -79,6 +82,18 @@ abstract class AbstractPactumBackendController extends AbstractBackendController
         $translator = $this->container->get('translator');
 
         return $translator->trans($id, $parameters, 'pactum');
+    }
+
+    /**
+     * Back end text of an exception: translated if it carries a translation key,
+     * otherwise its (English) message.
+     */
+    protected function transException(PactumException $exception): string
+    {
+        /** @var TranslatorInterface $translator */
+        $translator = $this->container->get('translator');
+
+        return $exception->trans($translator);
     }
 
     protected function addFlash(string $type, mixed $message): void

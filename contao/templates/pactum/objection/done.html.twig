@@ -1,0 +1,11 @@
+{% trans_default_domain 'pactum' %}
+<section class="pactum-step pactum-step--objection-done" aria-labelledby="pactum-objection-done">
+    <h2 id="pactum-objection-done">{{ 'objection.done.headline'|trans({}, 'pactum', locale) }}</h2>
+    <p>{{ 'objection.done.text'|trans({'%contractor%': objection.contractor.name}, 'pactum', locale) }}</p>
+    <dl class="pactum-summary">
+        <dt>{{ 'objection.done.date'|trans({}, 'pactum', locale) }}</dt>
+        <dd>{{ objection.recipient.objectedAt|date('d.m.Y H:i') }}</dd>
+        <dt>{{ 'objection.form.subprocessors'|trans({}, 'pactum', locale) }}</dt>
+        <dd>{{ objection.recipient.objectionSubprocessors|join(', ') }}</dd>
+    </dl>
+</section>

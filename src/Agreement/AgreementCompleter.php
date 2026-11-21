@@ -101,7 +101,7 @@ class AgreementCompleter
         $contractor = $this->contractors->find($template->contractorId);
 
         if (null === $contractor || !$contractor->isComplete()) {
-            throw new IncompleteContractorException(\sprintf('The contractor profile of template %d is missing or incomplete.', $template->id));
+            throw new IncompleteContractorException(\sprintf('The contractor profile of template %d is missing or incomplete.', $template->id), translationKey: 'be.contractor.incomplete');
         }
 
         $version = $this->versions->findActive($template->id, $invitation->language) ?? throw new NoActiveVersionException(\sprintf('Template %d has no published version.', $template->id));

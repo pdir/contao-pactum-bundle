@@ -37,6 +37,8 @@ abstract class DatabaseTestCase extends TestCase
         'tl_pactum_invitation',
         'tl_pactum_agreement',
         'tl_pactum_audit_log',
+        'tl_pactum_announcement',
+        'tl_pactum_announcement_recipient',
     ];
 
     private static Connection|null $connection = null;

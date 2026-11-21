@@ -1,0 +1,30 @@
+{% trans_default_domain 'pactum' %}
+{#
+    List of the announced sub-processor changes.
+    Variables: changes (SubprocessorChanges), locale
+#}
+<table class="pactum-changes">
+    <thead>
+        <tr>
+            <th scope="col">{{ 'announcement.change'|trans({}, 'pactum', locale) }}</th>
+            <th scope="col">{{ 'annex.subprocessor.name'|trans({}, 'pactum', locale) }}</th>
+            <th scope="col">{{ 'annex.subprocessor.service'|trans({}, 'pactum', locale) }}</th>
+            <th scope="col">{{ 'annex.subprocessor.location'|trans({}, 'pactum', locale) }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for type, list in {added: changes.added, changed: changes.changed, removed: changes.removed} %}
+            {% for sub in list %}
+                <tr class="pactum-changes__{{ type }}">
+                    <td>{{ ('announcement.change.' ~ type)|trans({}, 'pactum', locale) }}</td>
+                    <td>{{ sub.name }}<br>{{ sub.address|nl2br }}</td>
+                    <td>{{ sub.service|nl2br }}</td>
+                    <td>
+                        {{ ('annex.location.' ~ sub.location)|trans({}, 'pactum', locale) }}
+                        {% if sub.thirdCountry and sub.transferBasis %}<br>{{ sub.transferBasis }}{% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endfor %}
+    </tbody>
+</table>

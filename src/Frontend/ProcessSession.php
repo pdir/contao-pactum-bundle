@@ -25,6 +25,8 @@ class ProcessSession
 
     private const NOTICE_KEY = '_pactum_notice';
 
+    private const OBJECTION_KEY = '_pactum_objection';
+
     public function bind(SessionInterface $session, int $invitationId, #[\SensitiveParameter] string $plainToken): void
     {
         $session->set(self::KEY, ['invitation' => $invitationId, 'token' => $plainToken, 'editing' => false]);
@@ -64,6 +66,27 @@ class ProcessSession
     public function clear(SessionInterface $session): void
     {
         $session->remove(self::KEY);
+    }
+
+    /**
+     * Remembers the announcement recipient after the personal objection link was
+     * opened (the token itself is not kept).
+     */
+    public function bindObjection(SessionInterface $session, int $recipientId): void
+    {
+        $session->set(self::OBJECTION_KEY, $recipientId);
+    }
+
+    public function getObjectionRecipientId(SessionInterface $session): int|null
+    {
+        $id = $session->get(self::OBJECTION_KEY);
+
+        return \is_int($id) && $id > 0 ? $id : null;
+    }
+
+    public function clearObjection(SessionInterface $session): void
+    {
+        $session->remove(self::OBJECTION_KEY);
     }
 
     public function setNotice(SessionInterface $session, string $notice): void

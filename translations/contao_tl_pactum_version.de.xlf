@@ -94,6 +94,14 @@
                 <source>Preview of version ID %s</source>
                 <target>Vorschau von Version ID %s</target>
             </trans-unit>
+            <trans-unit id="tl_pactum_version.announce.0" resname="tl_pactum_version.announce.0">
+                <source>Announce change</source>
+                <target>Änderung ankündigen</target>
+            </trans-unit>
+            <trans-unit id="tl_pactum_version.announce.1" resname="tl_pactum_version.announce.1">
+                <source>Announce the sub-processor changes of version ID %s</source>
+                <target>Subunternehmer-Änderungen der Version ID %s ankündigen</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

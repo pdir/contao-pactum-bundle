@@ -1,0 +1,30 @@
+# Beispielliste für pactum:subprocessor:import (fiktive Anbieter).
+#
+#   vendor/bin/contao-console pactum:subprocessor:import <anlagen-id> subprocessors.de.yaml --dry-run
+#
+# EU/EWR oder Drittland wird aus dem Land abgeleitet. Drittländer brauchen
+# einen "hinweis" mit der Grundlage der Übermittlung (Art. 44 ff. DSGVO).
+# Das Land wird als letzte Zeile an die Anschrift angehängt.
+
+subunternehmer:
+  - name: "Beispiel Hosting GmbH"
+    anschrift:
+      - "Serverweg 1"
+      - "12345 Musterstadt"
+    leistung: "Webhosting und Datensicherung"
+    land: "Deutschland"
+
+  - name: "Muster Mail SARL"
+    anschrift:
+      - "1 Rue de l'Exemple"
+      - "75000 Paris"
+    leistung: "Versand von E-Mails"
+    land: "Frankreich"
+
+  - name: "Example Support Inc."
+    anschrift:
+      - "100 Sample Street"
+      - "San Francisco, CA 94000"
+    leistung: "Ticketsystem für den Kundensupport"
+    land: "USA"
+    hinweis: "EU-US Data Privacy Framework (Angemessenheitsbeschluss der EU-Kommission)"

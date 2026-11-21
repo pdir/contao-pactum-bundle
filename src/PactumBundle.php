@@ -76,12 +76,17 @@ class PactumBundle extends AbstractBundle
             ->min(1)
             ->defaultValue(15)
             ->end()
+            ->integerNode('subprocessor_notice_days')
+            ->info('Objection period in days when announcing a sub-processor change to existing customers.')
+            ->min(1)
+            ->defaultValue(14)
+            ->end()
             ->end()
         ;
     }
 
     /**
-     * @param array{invitation_ttl_days: int, optin_ttl_hours: int, ip_mode: string, store_user_agent: bool, ip_retention_days: int, cleanup_after_days: int, agreement_retention_days: int|null, storage_dir: string, download_ttl_minutes: int} $config
+     * @param array{invitation_ttl_days: int, optin_ttl_hours: int, ip_mode: string, store_user_agent: bool, ip_retention_days: int, cleanup_after_days: int, agreement_retention_days: int|null, storage_dir: string, download_ttl_minutes: int, subprocessor_notice_days: int} $config
      */
     public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
     {

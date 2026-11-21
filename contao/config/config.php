@@ -27,6 +27,9 @@ $GLOBALS['BE_MOD']['pactum'] = [
     'pactum_agreements' => [
         'tables' => ['tl_pactum_agreement'],
     ],
+    'pactum_announcements' => [
+        'tables' => ['tl_pactum_announcement', 'tl_pactum_announcement_recipient'],
+    ],
     'pactum_contractors' => [
         'tables' => ['tl_pactum_contractor'],
     ],

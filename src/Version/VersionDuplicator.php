@@ -30,7 +30,7 @@ class VersionDuplicator
 
     public function createDraftFrom(int $versionId): int
     {
-        $source = $this->versions->find($versionId) ?? throw new InvalidVersionException(\sprintf('Version %d does not exist.', $versionId));
+        $source = $this->versions->find($versionId) ?? throw new InvalidVersionException(\sprintf('Version %d does not exist.', $versionId), translationKey: 'error.version_not_found', translationParameters: ['%id%' => $versionId]);
 
         return $this->versions->insertDraftFrom(
             $source,

@@ -1,0 +1,6 @@
+{% trans_default_domain 'pactum' %}
+<section class="pactum-step pactum-step--objection-closed" aria-labelledby="pactum-objection-closed">
+    <h2 id="pactum-objection-closed">{{ 'objection.closed.headline'|trans({}, 'pactum', locale) }}</h2>
+    <p>{{ 'objection.closed.text'|trans({'%date%': objection.announcement.effectiveAt|date('d.m.Y'), '%contractor%': objection.contractor.name}, 'pactum', locale) }}</p>
+    {{ include('@Contao/pactum/objection/_changes.html.twig', {changes: objection.announcement.changes}) }}
+</section>

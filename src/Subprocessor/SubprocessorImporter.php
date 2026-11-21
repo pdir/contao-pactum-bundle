@@ -31,6 +31,7 @@ class SubprocessorImporter
         private readonly Connection $connection,
         private readonly AnnexRepository $annexes,
         private readonly ClockInterface $clock,
+        private readonly SubprocessorDiff $diff = new SubprocessorDiff(),
     ) {
     }
 
@@ -55,7 +56,7 @@ class SubprocessorImporter
             throw new PactumException(\sprintf('Annex %d is not a subprocessor annex (type "%s").', $annexId, $annex->type->value));
         }
 
-        $result = $this->diff($annex->subprocessors, $subprocessors, $dryRun);
+        $result = $this->buildResult($annex->subprocessors, $subprocessors, $dryRun);
 
         if (!$dryRun && $result->hasChanges()) {
             $now = $this->clock->now()->getTimestamp();
@@ -72,37 +73,18 @@ class SubprocessorImporter
      * @param list<Subprocessor> $current
      * @param list<Subprocessor> $new
      */
-    private function diff(array $current, array $new, bool $dryRun): SubprocessorImportResult
+    private function buildResult(array $current, array $new, bool $dryRun): SubprocessorImportResult
     {
-        $currentByName = [];
+        $changes = $this->diff->compare($current, $new);
 
-        foreach ($current as $sub) {
-            $currentByName[mb_strtolower($sub->name)] = $sub;
-        }
-
-        $added = [];
-        $changed = [];
-        $unchanged = 0;
-
-        foreach ($new as $sub) {
-            $key = mb_strtolower($sub->name);
-
-            if (!isset($currentByName[$key])) {
-                $added[] = $sub->name;
-            } elseif ($currentByName[$key]->toArray() !== $sub->toArray()) {
-                $changed[] = $sub->name;
-            } else {
-                ++$unchanged;
-            }
-
-            unset($currentByName[$key]);
-        }
-
-        $removed = array_values(array_map(static fn (Subprocessor $s): string => $s->name, $currentByName));
+        $added = SubprocessorChanges::names($changes->added);
+        $changed = SubprocessorChanges::names($changes->changed);
+        $removed = SubprocessorChanges::names($changes->removed);
+        $unchanged = $changes->unchanged;
 
         // A pure re-ordering is a change too, as the order is shown in the contract.
-        if ([] === $added && [] === $removed && [] === $changed && array_map(static fn (Subprocessor $s): string => mb_strtolower($s->name), $current) !== array_map(static fn (Subprocessor $s): string => mb_strtolower($s->name), $new)) {
-            $changed = array_map(static fn (Subprocessor $s): string => $s->name, $new);
+        if (!$changes->hasContentChanges() && $changes->reordered) {
+            $changed = SubprocessorChanges::names($new);
             $unchanged = 0;
         }
 

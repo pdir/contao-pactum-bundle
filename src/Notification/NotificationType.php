@@ -18,4 +18,6 @@ enum NotificationType: string
     case OptIn = 'optin';
     case AgreementCustomer = 'agreement_customer';
     case AgreementContractor = 'agreement_contractor';
+    case SubprocessorAnnouncement = 'subprocessor_announcement';
+    case SubprocessorObjection = 'subprocessor_objection';
 }

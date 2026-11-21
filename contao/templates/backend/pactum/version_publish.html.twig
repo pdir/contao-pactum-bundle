@@ -10,6 +10,15 @@
                 <input type="hidden" name="REQUEST_TOKEN" value="{{ contao.request_token }}">
                 <p class="tl_confirm">{{ 'be.version.publish_question'|trans({'%number%': pactum_version.versionNumber, '%language%': pactum_version.language, '%template%': template.title|default('')}) }}</p>
                 <p class="tl_help">{{ 'be.version.publish_hint'|trans }}</p>
+                {% if announcement %}
+                    {% if announcement.effectiveAt > now %}
+                        <p class="tl_info">{{ 'be.announcement.publish_running'|trans({'%date%': announcement.effectiveAt|date('d.m.Y'), '%objections%': announcement.objectionCount, '%recipients%': announcement.recipientCount}) }}</p>
+                    {% else %}
+                        <p class="{{ announcement.objectionCount > 0 ? 'tl_error' : 'tl_confirm' }}">{{ 'be.announcement.publish_ended'|trans({'%date%': announcement.effectiveAt|date('d.m.Y'), '%objections%': announcement.objectionCount, '%recipients%': announcement.recipientCount}) }}</p>
+                    {% endif %}
+                {% else %}
+                    <p class="tl_help">{{ 'be.announcement.publish_none'|trans }}</p>
+                {% endif %}
             </div>
             <div class="tl_formbody_submit">
                 <div class="tl_submit_container">

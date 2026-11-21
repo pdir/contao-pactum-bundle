@@ -64,7 +64,7 @@ class VersionPublisher
      */
     public function preview(int $versionId): string
     {
-        $version = $this->versions->find($versionId) ?? throw new InvalidVersionException(\sprintf('Version %d does not exist.', $versionId));
+        $version = $this->versions->find($versionId) ?? throw new InvalidVersionException(\sprintf('Version %d does not exist.', $versionId), translationKey: 'error.version_not_found', translationParameters: ['%id%' => $versionId]);
 
         if (VersionStatus::Draft !== $version->status) {
             return (string) $version->renderedContent;
@@ -92,18 +92,18 @@ class VersionPublisher
 
         $archived = $this->connection->transactional(
             function () use ($versionId, $userId, $now): array {
-                $version = $this->versions->find($versionId) ?? throw new InvalidVersionException(\sprintf('Version %d does not exist.', $versionId));
+                $version = $this->versions->find($versionId) ?? throw new InvalidVersionException(\sprintf('Version %d does not exist.', $versionId), translationKey: 'error.version_not_found', translationParameters: ['%id%' => $versionId]);
 
                 if (VersionStatus::Draft !== $version->status) {
-                    throw new VersionLockedException(\sprintf('Version %d is not a draft.', $versionId));
+                    throw new VersionLockedException(\sprintf('Version %d is not a draft.', $versionId), translationKey: 'error.version_not_draft', translationParameters: ['%id%' => $versionId]);
                 }
 
                 if ('' === $version->language) {
-                    throw new InvalidVersionException(\sprintf('Version %d has no language.', $versionId));
+                    throw new InvalidVersionException(\sprintf('Version %d has no language.', $versionId), translationKey: 'error.version_no_language');
                 }
 
                 if ($version->validFrom && $version->validFrom > $now) {
-                    throw new InvalidVersionException(\sprintf('Version %d: the "valid from" date must not be in the future.', $versionId));
+                    throw new InvalidVersionException(\sprintf('Version %d: the "valid from" date must not be in the future.', $versionId), translationKey: 'error.version_valid_from_future');
                 }
 
                 [$template, $contractor] = $this->loadTemplateAndContractor($version);
@@ -133,7 +133,7 @@ class VersionPublisher
             },
         );
 
-        $published = $this->versions->find($versionId) ?? throw new InvalidVersionException(\sprintf('Version %d does not exist.', $versionId));
+        $published = $this->versions->find($versionId) ?? throw new InvalidVersionException(\sprintf('Version %d does not exist.', $versionId), translationKey: 'error.version_not_found', translationParameters: ['%id%' => $versionId]);
 
         $this->eventDispatcher->dispatch(new VersionPublishedEvent($published, $archived));
 
@@ -145,11 +145,11 @@ class VersionPublisher
      */
     private function loadTemplateAndContractor(Version $version): array
     {
-        $template = $this->templates->find($version->templateId) ?? throw new InvalidVersionException(\sprintf('Template %d does not exist.', $version->templateId));
+        $template = $this->templates->find($version->templateId) ?? throw new InvalidVersionException(\sprintf('Template %d does not exist.', $version->templateId), translationKey: 'error.template_not_found', translationParameters: ['%id%' => $version->templateId]);
         $contractor = $this->contractors->find($template->contractorId);
 
         if (null === $contractor || !$contractor->isComplete()) {
-            throw new IncompleteContractorException(\sprintf('The contractor profile of template %d is missing or incomplete.', $template->id));
+            throw new IncompleteContractorException(\sprintf('The contractor profile of template %d is missing or incomplete.', $template->id), translationKey: 'be.contractor.incomplete');
         }
 
         return [$template, $contractor];

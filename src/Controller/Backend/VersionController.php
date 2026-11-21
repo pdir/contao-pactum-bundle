@@ -18,10 +18,12 @@ use Pdir\PactumBundle\Exception\IncompleteContractorException;
 use Pdir\PactumBundle\Exception\InvalidVersionException;
 use Pdir\PactumBundle\Exception\UnknownPlaceholderException;
 use Pdir\PactumBundle\Exception\VersionLockedException;
+use Pdir\PactumBundle\Repository\AnnouncementRepository;
 use Pdir\PactumBundle\Repository\TemplateRepository;
 use Pdir\PactumBundle\Repository\VersionRepository;
 use Pdir\PactumBundle\Version\VersionDuplicator;
 use Pdir\PactumBundle\Version\VersionPublisher;
+use Psr\Clock\ClockInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -35,6 +37,8 @@ class VersionController extends AbstractPactumBackendController
         private readonly TemplateRepository $templates,
         private readonly VersionPublisher $publisher,
         private readonly VersionDuplicator $duplicator,
+        private readonly AnnouncementRepository $announcements,
+        private readonly ClockInterface $clock,
     ) {
     }
 
@@ -62,7 +66,7 @@ class VersionController extends AbstractPactumBackendController
         } catch (IncompleteContractorException) {
             $error = $this->trans('be.contractor.incomplete');
         } catch (InvalidVersionException $e) {
-            $error = $e->getMessage();
+            $error = $this->transException($e);
         }
 
         if (null === $error && $request->isMethod('POST')) {
@@ -78,7 +82,7 @@ class VersionController extends AbstractPactumBackendController
             } catch (IncompleteContractorException|InvalidVersionException|UnknownPlaceholderException|VersionLockedException $e) {
                 $error = $e instanceof UnknownPlaceholderException
                     ? $this->trans('be.version.unknown_placeholders', ['%placeholders%' => implode(', ', $e->placeholders)])
-                    : $e->getMessage();
+                    : $this->transException($e);
             }
         }
 
@@ -89,6 +93,8 @@ class VersionController extends AbstractPactumBackendController
             'template' => $this->templates->find($version->templateId),
             'preview' => $preview,
             'publish_error' => $error,
+            'announcement' => $this->announcements->findLatestForVersion($id),
+            'now' => $this->clock->now()->getTimestamp(),
             'back_url' => $back,
         ]);
     }
@@ -138,7 +144,7 @@ class VersionController extends AbstractPactumBackendController
         } catch (IncompleteContractorException) {
             $error = $this->trans('be.contractor.incomplete');
         } catch (InvalidVersionException $e) {
-            $error = $e->getMessage();
+            $error = $this->transException($e);
         }
 
         return $this->render('@Contao/backend/pactum/version_preview.html.twig', [

@@ -68,7 +68,7 @@ class InvitationController extends AbstractPactumBackendController
             } catch (InvitationNotUsableException) {
                 $error = $this->trans('be.invitation.not_usable');
             } catch (PactumException $e) {
-                $error = $e->getMessage();
+                $error = $this->transException($e);
             }
 
             // Reload the record (status, mail status)

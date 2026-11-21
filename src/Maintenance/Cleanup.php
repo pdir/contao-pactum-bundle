@@ -18,6 +18,7 @@ use Pdir\PactumBundle\Domain\AuditEvent;
 use Pdir\PactumBundle\Invitation\InvitationService;
 use Pdir\PactumBundle\Pdf\PdfStorage;
 use Pdir\PactumBundle\Repository\AgreementRepository;
+use Pdir\PactumBundle\Repository\AnnouncementRepository;
 use Pdir\PactumBundle\Repository\AuditLogRepository;
 use Pdir\PactumBundle\Repository\InvitationRepository;
 use Psr\Clock\ClockInterface;
@@ -44,6 +45,7 @@ class Cleanup
         private readonly ClockInterface $clock,
         private readonly int $cleanupAfterDays,
         private readonly int|null $agreementRetentionDays,
+        private readonly AnnouncementRepository $announcements,
     ) {
     }
 
@@ -73,6 +75,7 @@ class Cleanup
                 $this->connection->transactional(
                     function () use ($agreement): void {
                         $this->auditLog->deleteForAgreement($agreement->id, $agreement->invitationId);
+                        $this->announcements->deleteRecipientsForAgreement($agreement->id);
                         $this->agreements->delete($agreement->id);
                         $this->invitations->delete($agreement->invitationId);
                     },
